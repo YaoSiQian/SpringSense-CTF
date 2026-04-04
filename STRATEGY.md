@@ -1,0 +1,196 @@
+# 游戏机制与策略研究笔记
+## 一、游戏规则核心
+### 1.1 胜利条件
+- 先占领8个点立即获胜
+- 3分钟后按已占领点数判定胜负，相同则平局
+### 1.2 阵营与领地
+- **左队(L/红)**：X < 0 区域
+- **右队(R/蓝)**：X > 0 区域
+- 监狱区域（重生点）：
+  - L队：x=-18..-14, z=26..30
+  - R队：x=14..18, z=26..30
+### 1.3 地图信息
+- 核心区：x: -24..24, z: -36..36
+- 目标点（金块）：x=±22, z=6,10,14,18,22,26,30,34
+- 障碍物：树、瓶子草、哞菇（追踪冲撞AI）、发光鱿鱼
+---
+## 二、关键机制详解
+### 2.1 夺旗与插旗
+- **拔旗**：靠近敌方旗座自动拔旗，旗帜放到头盔位
+- **插旗**：携旗走到己方半场空金块上自动插旗
+- **旗座**：地面铜块+栅栏+旗帜
+### 2.2 抓捕机制
+- **触发条件**：碰撞箱接触即触发
+- **己方半场优势**：己方半场 + 敌人侵入 → 敌人被抓进监狱
+- **敌方半场风险**：敌方半场 + 敌人也在那里 → 你被抓进监狱
+- **双方都持旗**：进监狱的那方掉旗
+### 2.3 监狱与逃脱机制 ⭐关键
+#### 监狱流程：
+1. 被抓 → 自动传送到压力板上（监狱内）
+2. 监狱门：定时自动开启（具体时间未知）
+3. 逃脱：门开后走出去即可离开监狱区域
+#### 监狱区域定义：
+```python
+_PRISON_ZONES = {
+    "L": {"min_x": -18, "max_x": -14, "min_z": 26, "max_z": 30},
+    "R": {"min_x": 14,  "max_x": 18,  "min_z": 26, "max_z": 30},
+}
+```
+#### 逃脱判定：
+- `in_prison: true` 时门关闭，无法手动开启
+- 离开监狱区域（z < 26）即视为逃脱成功
+- 路径寻找器已配置 `canOpenDoors: True`，可自动开门
+### 2.4 掉旗重定位
+- 触发条件：被抓/死亡
+- 重定位规则：
+  - 在附近可放置位置重新立旗
+  - 优先搜索草地 + 上方两格空气
+  - 只在左右半场内，不会掉到场外
+- 原旗座可以重新插旗
+### 2.5 压力板解救机制
+- 位置：z=24（监狱边界外）
+- 机制：踩压力板可解救监狱中的队友
+- 注意：玩家自己也可以通过走向 z=24 离开监狱
+---
+## 三、移动效率数据
+| 移动方式 | 速度 |
+|----------|------|
+| 普通跑步 | 5.61 m/s |
+| 跑跳 | 7.13 m/s |
+| 步行 | 4.32 m/s |
+**策略启示**：
+- 默认启用疾跑（sprint=True）
+- 跑跳更快，但可能增加碰撞风险
+---
+## 四、观测数据可用信息
+### 4.1 PlayerState 关键字段
+```python
+name: str           # 玩家名称
+team: TeamName      # L 或 R
+position: GridPosition  # 网格坐标
+in_prison: bool     # 是否在监狱
+has_flag: bool      # 是否持旗
+is_self: bool       # 是否为自己
+```
+### 4.2 Observation 关键属性
+```python
+self_player         # 自身状态
+my_targets          # 我方可插旗的空金块
+flags_to_capture    # 可夺取的敌方旗帜
+teammates           # 队友列表
+enemies             # 敌人列表
+me                  # 自身BotState（含world_position）
+```
+### 4.3 地图地标信息
+```python
+TeamLandmarks:
+    flag_markers: tuple[GridPosition]      # 旗帜标记位置
+    capture_pads: tuple[GridPosition]      # 捕获点
+    prison_entries: tuple[GridPosition]    # 监狱入口
+    prison_gate: GridPosition | None       # 监狱门位置
+    prison_cells: tuple[GridPosition]      # 监狱格子
+    target_cells: tuple[GridPosition]      # 目标格子
+```
+---
+## 五、策略核心原则
+### 5.1 三条铁律
+1. **持旗避战**：持旗时绝不主动接触敌人（避免掉旗）
+2. **空载择战**：空载时选择性接触敌人
+3. **绝不越界**：绝不追击到敌方半场（会被抓）
+### 5.2 优先级排序
+```
+优先级1: 持旗返回（最高优先级，避免一切接触）
+    ↓
+优先级2: 拦截携旗敌人（次高优先级，阻止敌方得分）
+    ↓
+优先级3: 评估抓捕空载敌人（视距离和位置决定）
+    ↓
+优先级4: 夺旗（默认行为）
+```
+### 5.3 抓捕收益评估
+**高收益场景（推荐抓捕）**：
+- 敌人持旗返回途中 → 拦截收益极高
+- 敌人在己方半场深处 → 抓捕容易且安全
+**低收益/高风险场景（不推荐抓捕）**：
+- 追击到敌方半场 → 自己会被抓
+- 离旗帜很近时 → 机会成本高
+- 敌人在边界徘徊 → 可能引诱你进入敌方半场
+---
+## 六、多人协作策略
+### 6.1 角色分工建议
+- **进攻手**：专注夺旗，快速往返
+- **防守手**：在己方半场巡逻，拦截携旗敌人
+- **支援手**：监狱附近接应，或在中场控制
+### 6.2 信息共享
+通过 `Chat` 动作广播关键信息：
+- `"Capturing flag at (x,z)"` - 告知队友正在夺旗
+- `"Enemy with flag at (x,z)"` - 报告携旗敌人位置
+- `"Need help at prison"` - 请求监狱支援
+- `"Returning flag to (x,z)"` - 告知队友回旗目标
+---
+## 七、待验证/待测试项
+1. **监狱门开启周期**：具体时间未知（估计5-10秒）
+2. **碰撞判定距离**：精确碰撞箱大小
+3. **掉旗重定位范围**："附近"的具体距离
+4. **压力板解救延迟**：踩下后多久开门
+---
+## 八、已知限制与注意事项
+1. **Pathfinder限制**：
+   - 会避开所有实体（包括哞菇）
+   - 哞菇会追踪玩家，可能导致死锁
+   - 必要时需要自定义移动逻辑
+2. **动作Tick频率**：
+   - 默认0.1秒（10Hz）计算动作
+   - 平衡响应性与CPU使用率
+3. **坐标系统**：
+   - Y=1 是默认游戏平面
+   - 所有重要方块都在 y=0 或 y=1
+---
+## 九、策略实现要点
+### 9.1 状态机设计
+```python
+def compute_next_action(self, obs):
+    me = obs.self_player
+    
+    # 状态1: 在监狱中
+    if me.in_prison:
+        return self._escape_prison(obs)
+    
+    # 状态2: 持旗返回
+    if me.has_flag:
+        return self._return_flag(obs)
+    
+    # 状态3: 拦截携旗敌人
+    carrying_enemies = [e for e in obs.enemies if e.has_flag]
+    if carrying_enemies:
+        return self._intercept_enemy(obs, carrying_enemies[0])
+    
+    # 状态4: 评估是否抓捕
+    if self._should_capture_nearby_enemy(obs):
+        return self._chase_enemy(obs)
+    
+    # 状态5: 夺旗
+    return self._capture_flag(obs)
+```
+### 9.2 距离计算
+使用曼哈顿距离（适合网格移动）：
+```python
+def _manhattan_distance(left: GridPosition, right: GridPosition) -> int:
+    return abs(left.x - right.x) + abs(left.z - right.z)
+```
+### 9.3 最近目标选择
+```python
+def _pick_closest(self, origin, targets):
+    if not targets:
+        return None
+    return min(targets, key=lambda t: self._manhattan_distance(origin, t.grid_position))
+```
+---
+## 十、总结
+**核心策略公式**：
+> 快速夺取最近旗帜 + 安全返回 + 拦截携旗敌人 + 灵活应对特殊情况
+**胜利关键**：
+1. 减少往返时间（选择最近目标）
+2. 避免不必要战斗（持旗时绝对避战）
+3. 高效利用监狱机制（拦截敌人）
+4. 多人协作（信息共享 + 角色分工）
