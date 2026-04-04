@@ -1,0 +1,9123 @@
+{
+  "tick_ms": null,
+  "bot_name": "CTF-52-2",
+  "team": "R",
+  "me": {
+    "name": "CTF-52-2",
+    "team": "R",
+    "position": {
+      "x": 4,
+      "z": 2
+    },
+    "world_position": {
+      "x": 4.3382684865524075,
+      "y": 1.0,
+      "z": 2.9202584519137056
+    },
+    "is_self": true
+  },
+  "players": [
+    {
+      "name": "HRY6323",
+      "team": null,
+      "position": {
+        "x": 18,
+        "z": 3
+      },
+      "world_position": {
+        "x": 18.66585577037165,
+        "y": 21.3806677911359,
+        "z": 3.9139399670917077
+      },
+      "in_prison": false,
+      "has_flag": false,
+      "held_item_name": null,
+      "is_self": false
+    },
+    {
+      "name": "CTF-52-2",
+      "team": "R",
+      "position": {
+        "x": 4,
+        "z": 2
+      },
+      "world_position": {
+        "x": 4.3382684865524075,
+        "y": 1.0,
+        "z": 2.9202584519137056
+      },
+      "in_prison": false,
+      "has_flag": false,
+      "held_item_name": null,
+      "is_self": true
+    }
+  ],
+  "myteam_players": [
+    {
+      "name": "CTF-52-2",
+      "team": "R",
+      "position": {
+        "x": 4,
+        "z": 2
+      },
+      "world_position": {
+        "x": 4.3382684865524075,
+        "y": 1.0,
+        "z": 2.9202584519137056
+      },
+      "in_prison": false,
+      "has_flag": false,
+      "held_item_name": null,
+      "is_self": true
+    }
+  ],
+  "opponent_players": [],
+  "entities": [
+    {
+      "id": 710,
+      "type": "player",
+      "name": "player",
+      "username": "HRY6323",
+      "display_name": null,
+      "object_type": null,
+      "team": null,
+      "position": {
+        "x": 18.66585577037165,
+        "y": 21.3806677911359,
+        "z": 3.9139399670917077
+      }
+    },
+    {
+      "id": 712,
+      "type": "player",
+      "name": "player",
+      "username": "CTF-52-2",
+      "display_name": null,
+      "object_type": null,
+      "team": null,
+      "position": {
+        "x": 4.3382684865524075,
+        "y": 1.0,
+        "z": 2.9202584519137056
+      }
+    },
+    {
+      "id": 713,
+      "type": "animal",
+      "name": "mooshroom",
+      "username": null,
+      "display_name": "Mooshroom",
+      "object_type": "Mooshroom",
+      "team": null,
+      "position": {
+        "x": 7.348420577288689,
+        "y": 1.0,
+        "z": 8.348079823516537
+      }
+    },
+    {
+      "id": 714,
+      "type": "animal",
+      "name": "mooshroom",
+      "username": null,
+      "display_name": "Mooshroom",
+      "object_type": "Mooshroom",
+      "team": null,
+      "position": {
+        "x": 7.0604702837232765,
+        "y": 1.0,
+        "z": 6.060657975431944
+      }
+    },
+    {
+      "id": 715,
+      "type": "animal",
+      "name": "mooshroom",
+      "username": null,
+      "display_name": "Mooshroom",
+      "object_type": "Mooshroom",
+      "team": null,
+      "position": {
+        "x": 8.258626599494134,
+        "y": 1.0,
+        "z": 5.258464681948402
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -35.0
+      }
+    },
+    {
+      "name": "waxed_copper_block",
+      "display_name": "Waxed Block of Copper",
+      "type": 1031,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": -34.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -34.0
+      }
+    },
+    {
+      "name": "waxed_copper_block",
+      "display_name": "Waxed Block of Copper",
+      "type": 1031,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": -34.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -33.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -32.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -31.0
+      }
+    },
+    {
+      "name": "waxed_copper_block",
+      "display_name": "Waxed Block of Copper",
+      "type": 1031,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": -30.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -30.0
+      }
+    },
+    {
+      "name": "waxed_copper_block",
+      "display_name": "Waxed Block of Copper",
+      "type": 1031,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": -30.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -29.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -28.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -27.0
+      }
+    },
+    {
+      "name": "waxed_copper_block",
+      "display_name": "Waxed Block of Copper",
+      "type": 1031,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": -26.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -26.0
+      }
+    },
+    {
+      "name": "waxed_copper_block",
+      "display_name": "Waxed Block of Copper",
+      "type": 1031,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": -26.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -25.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -24.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -23.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -22.0
+      }
+    },
+    {
+      "name": "waxed_copper_block",
+      "display_name": "Waxed Block of Copper",
+      "type": 1031,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": -22.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -21.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -20.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -19.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -18.0
+      }
+    },
+    {
+      "name": "waxed_copper_block",
+      "display_name": "Waxed Block of Copper",
+      "type": 1031,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": -18.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -17.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -16.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -15.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -14.0
+      }
+    },
+    {
+      "name": "waxed_copper_block",
+      "display_name": "Waxed Block of Copper",
+      "type": 1031,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": -14.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -13.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -12.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -11.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -10.0
+      }
+    },
+    {
+      "name": "waxed_copper_block",
+      "display_name": "Waxed Block of Copper",
+      "type": 1031,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": -10.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -9.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -8.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -7.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "waxed_copper_block",
+      "display_name": "Waxed Block of Copper",
+      "type": 1031,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -23.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -21.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -20.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 20.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 21.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 23.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "smooth_stone_slab",
+      "display_name": "Smooth Stone Slab",
+      "type": 609,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "redstone_wire",
+      "display_name": "Redstone Wire",
+      "type": 201,
+      "bounding_box": "empty",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": -23.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": -21.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -20.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 20.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": 21.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": 23.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": -23.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": -21.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -20.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 20.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": 21.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": 23.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": -23.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": -21.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -20.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 20.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": 21.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "orange_terracotta",
+      "display_name": "Orange Terracotta",
+      "type": 483,
+      "bounding_box": "block",
+      "position": {
+        "x": 23.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "redstone_wire",
+      "display_name": "Redstone Wire",
+      "type": 201,
+      "bounding_box": "empty",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone_slab",
+      "display_name": "Smooth Stone Slab",
+      "type": 609,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -23.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -21.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -20.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 20.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 21.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 23.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "smooth_stone_slab",
+      "display_name": "Smooth Stone Slab",
+      "type": 609,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "redstone_wire",
+      "display_name": "Redstone Wire",
+      "type": 201,
+      "bounding_box": "empty",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 0.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 0.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 0.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 0.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 0.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 0.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 7.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 8.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 9.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 10.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 10.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 10.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 11.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 12.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 13.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 15.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 16.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 17.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 18.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 18.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 18.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 19.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 20.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 21.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 22.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 22.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 22.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 23.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -16.0,
+        "y": 0.0,
+        "z": 24.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 24.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 16.0,
+        "y": 0.0,
+        "z": 24.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -16.0,
+        "y": 0.0,
+        "z": 25.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 0.0,
+        "z": 25.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 25.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 0.0,
+        "z": 25.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 16.0,
+        "y": 0.0,
+        "z": 25.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -17.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -16.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -15.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 16.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -17.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -16.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -15.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 16.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 0.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -17.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -16.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -15.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 16.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 0.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -17.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -16.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -15.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 16.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 0.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -17.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -16.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -15.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 16.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "smooth_stone",
+      "display_name": "Smooth Stone",
+      "type": 622,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 0.0,
+        "z": 31.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 31.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 0.0,
+        "z": 31.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 0.0,
+        "z": 32.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 32.0
+      }
+    },
+    {
+      "name": "redstone_lamp",
+      "display_name": "Redstone Lamp",
+      "type": 394,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 0.0,
+        "z": 32.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 33.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 34.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 34.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 34.0
+      }
+    },
+    {
+      "name": "glass",
+      "display_name": "Glass",
+      "type": 101,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 35.0
+      }
+    },
+    {
+      "name": "stripped_oak_log",
+      "display_name": "Stripped Oak Log",
+      "type": 68,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -23.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -21.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -20.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -19.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -17.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -16.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -15.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -11.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -10.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -9.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -8.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -7.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -6.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -5.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -4.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -3.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -2.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -1.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 2.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 3.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 4.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 5.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 6.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 7.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 8.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 9.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 10.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 11.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 12.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 16.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 19.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 20.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 21.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 23.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "stripped_oak_log",
+      "display_name": "Stripped Oak Log",
+      "type": 68,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -35.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -35.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -34.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 1.0,
+        "z": -34.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": -34.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -34.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -33.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -33.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -32.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -32.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -31.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": 9.0,
+        "y": 1.0,
+        "z": -31.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -31.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 1.0,
+        "z": -30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": -30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -29.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -29.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -28.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -28.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -27.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -27.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 1.0,
+        "z": -26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": -26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -25.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -25.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -24.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -24.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -23.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -23.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -22.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": -14.0,
+        "y": 1.0,
+        "z": -22.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": -22.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -22.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -21.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -21.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -20.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -20.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -19.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -19.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -18.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": -18.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -18.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -17.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": 5.0,
+        "y": 1.0,
+        "z": -17.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -17.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -16.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -16.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -15.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -15.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -14.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": -14.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": 23.0,
+        "y": 1.0,
+        "z": -14.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -14.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -13.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -13.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -12.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": -13.0,
+        "y": 1.0,
+        "z": -12.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": -11.0,
+        "y": 1.0,
+        "z": -12.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -12.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -11.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -11.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -10.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": -10.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -10.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -9.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": 19.0,
+        "y": 1.0,
+        "z": -9.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -9.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -8.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 1.0,
+        "z": -8.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -8.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -7.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": -19.0,
+        "y": 1.0,
+        "z": -7.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -7.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 1.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 1.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 1.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 1.0,
+        "z": -5.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 1.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 1.0,
+        "z": -4.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 1.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 1.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 1.0,
+        "z": 0.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": 12.0,
+        "y": 1.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 1.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": -21.0,
+        "y": 1.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 1.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 1.0,
+        "z": 4.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 1.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "brown_carpet",
+      "display_name": "Brown Carpet",
+      "type": 548,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 1.0,
+        "z": 5.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -28.0,
+        "y": 1.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -27.0,
+        "y": 1.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "red_carpet",
+      "display_name": "Red Carpet",
+      "type": 550,
+      "bounding_box": "block",
+      "position": {
+        "x": -26.0,
+        "y": 1.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 26.0,
+        "y": 1.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 27.0,
+        "y": 1.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "blue_carpet",
+      "display_name": "Blue Carpet",
+      "type": 547,
+      "bounding_box": "block",
+      "position": {
+        "x": 28.0,
+        "y": 1.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 7.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": -11.0,
+        "y": 1.0,
+        "z": 7.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 7.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 8.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 8.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 9.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 9.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 10.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": 10.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 10.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 11.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 11.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 12.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 1.0,
+        "z": 12.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 1.0,
+        "z": 12.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 1.0,
+        "z": 12.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 12.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 13.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 1.0,
+        "z": 13.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 1.0,
+        "z": 13.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 1.0,
+        "z": 13.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 13.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 1.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 1.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 1.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 15.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 15.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 16.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 16.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 17.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": -2.0,
+        "y": 1.0,
+        "z": 17.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": 12.0,
+        "y": 1.0,
+        "z": 17.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 17.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 18.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": 18.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 18.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 19.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 19.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 20.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 20.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 21.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 21.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 22.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": 22.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 22.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 23.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 23.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 24.0
+      }
+    },
+    {
+      "name": "stone_pressure_plate",
+      "display_name": "Stone Pressure Plate",
+      "type": 258,
+      "bounding_box": "empty",
+      "position": {
+        "x": -16.0,
+        "y": 1.0,
+        "z": 24.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": 4.0,
+        "y": 1.0,
+        "z": 24.0
+      }
+    },
+    {
+      "name": "stone_pressure_plate",
+      "display_name": "Stone Pressure Plate",
+      "type": 258,
+      "bounding_box": "empty",
+      "position": {
+        "x": 16.0,
+        "y": 1.0,
+        "z": 24.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 24.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 25.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 25.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -17.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence_gate",
+      "display_name": "Oak Fence Gate",
+      "type": 368,
+      "bounding_box": "block",
+      "position": {
+        "x": -16.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -15.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence_gate",
+      "display_name": "Oak Fence Gate",
+      "type": 368,
+      "bounding_box": "block",
+      "position": {
+        "x": 16.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": -19.0,
+        "y": 1.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 1.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 1.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": -11.0,
+        "y": 1.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 1.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 1.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 1.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "stone_pressure_plate",
+      "display_name": "Stone Pressure Plate",
+      "type": 258,
+      "bounding_box": "empty",
+      "position": {
+        "x": -16.0,
+        "y": 1.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 1.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 1.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "stone_pressure_plate",
+      "display_name": "Stone Pressure Plate",
+      "type": 258,
+      "bounding_box": "empty",
+      "position": {
+        "x": 16.0,
+        "y": 1.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 1.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 1.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 1.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 1.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 1.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 29.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -17.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -16.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -15.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 16.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 31.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 31.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 32.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 32.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 33.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 33.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 34.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 34.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 35.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 35.0
+      }
+    },
+    {
+      "name": "stripped_oak_log",
+      "display_name": "Stripped Oak Log",
+      "type": 68,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -23.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -21.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -20.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -19.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -18.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -17.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -16.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -15.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -11.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -10.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -9.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -8.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -7.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -6.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -5.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -4.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -3.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -2.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": -1.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 0.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 2.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 3.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 4.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 5.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 6.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 7.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 8.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 9.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 10.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 11.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 12.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 16.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 19.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 20.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 21.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "oak_fence",
+      "display_name": "Oak Fence",
+      "type": 283,
+      "bounding_box": "block",
+      "position": {
+        "x": 23.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "stripped_oak_log",
+      "display_name": "Stripped Oak Log",
+      "type": 68,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 1.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "barrier",
+      "display_name": "Barrier",
+      "type": 522,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 2.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "barrier",
+      "display_name": "Barrier",
+      "type": 522,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 2.0,
+        "z": -36.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": -22.0,
+        "y": 2.0,
+        "z": -34.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -34.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": 9.0,
+        "y": 2.0,
+        "z": -31.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": -22.0,
+        "y": 2.0,
+        "z": -30.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -30.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": -22.0,
+        "y": 2.0,
+        "z": -26.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -26.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": -14.0,
+        "y": 2.0,
+        "z": -22.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -22.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 4.0,
+        "y": 2.0,
+        "z": -18.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 5.0,
+        "y": 2.0,
+        "z": -18.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 6.0,
+        "y": 2.0,
+        "z": -18.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -18.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 4.0,
+        "y": 2.0,
+        "z": -17.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": 5.0,
+        "y": 2.0,
+        "z": -17.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 6.0,
+        "y": 2.0,
+        "z": -17.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 4.0,
+        "y": 2.0,
+        "z": -16.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 5.0,
+        "y": 2.0,
+        "z": -16.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 6.0,
+        "y": 2.0,
+        "z": -16.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -14.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": 23.0,
+        "y": 2.0,
+        "z": -14.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": -13.0,
+        "y": 2.0,
+        "z": -12.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": -11.0,
+        "y": 2.0,
+        "z": -12.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -10.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": 19.0,
+        "y": 2.0,
+        "z": -9.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 2.0,
+        "z": -8.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": -19.0,
+        "y": 2.0,
+        "z": -7.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -6.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 2.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 2.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 2.0,
+        "z": -3.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 2.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 2.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 2.0,
+        "z": -2.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 13.0,
+        "y": 2.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 14.0,
+        "y": 2.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 15.0,
+        "y": 2.0,
+        "z": -1.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 2.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 2.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 19.0,
+        "y": 2.0,
+        "z": 1.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": 12.0,
+        "y": 2.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 2.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 2.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 19.0,
+        "y": 2.0,
+        "z": 2.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": -21.0,
+        "y": 2.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 17.0,
+        "y": 2.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 18.0,
+        "y": 2.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": 19.0,
+        "y": 2.0,
+        "z": 3.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 2.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -11.0,
+        "y": 2.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -10.0,
+        "y": 2.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 2.0,
+        "z": 7.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": -11.0,
+        "y": 2.0,
+        "z": 7.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -10.0,
+        "y": 2.0,
+        "z": 7.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 2.0,
+        "z": 8.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -11.0,
+        "y": 2.0,
+        "z": 8.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -10.0,
+        "y": 2.0,
+        "z": 8.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": 10.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 2.0,
+        "z": 12.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 2.0,
+        "z": 12.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 2.0,
+        "z": 12.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 2.0,
+        "z": 13.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 2.0,
+        "z": 13.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 2.0,
+        "z": 13.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -14.0,
+        "y": 2.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -13.0,
+        "y": 2.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 2.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": -2.0,
+        "y": 2.0,
+        "z": 17.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": 12.0,
+        "y": 2.0,
+        "z": 17.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": 18.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": 22.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": 4.0,
+        "y": 2.0,
+        "z": 24.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 2.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -11.0,
+        "y": 2.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -10.0,
+        "y": 2.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "pitcher_plant",
+      "display_name": "Pitcher Plant",
+      "type": 662,
+      "bounding_box": "empty",
+      "position": {
+        "x": -19.0,
+        "y": 2.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 2.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "oak_log",
+      "display_name": "Oak Log",
+      "type": 49,
+      "bounding_box": "block",
+      "position": {
+        "x": -11.0,
+        "y": 2.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -10.0,
+        "y": 2.0,
+        "z": 27.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -12.0,
+        "y": 2.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -11.0,
+        "y": 2.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "oak_leaves",
+      "display_name": "Oak Leaves",
+      "type": 88,
+      "bounding_box": "block",
+      "position": {
+        "x": -10.0,
+        "y": 2.0,
+        "z": 28.0
+      }
+    },
+    {
+      "name": "barrier",
+      "display_name": "Barrier",
+      "type": 522,
+      "bounding_box": "block",
+      "position": {
+        "x": -24.0,
+        "y": 2.0,
+        "z": 36.0
+      }
+    },
+    {
+      "name": "barrier",
+      "display_name": "Barrier",
+      "type": 522,
+      "bounding_box": "block",
+      "position": {
+        "x": 24.0,
+        "y": 2.0,
+        "z": 36.0
+      }
+    }
+  ],
+  "gold_blocks": [
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 10.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 10.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 18.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 18.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 22.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 22.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 26.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 30.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": -22.0,
+        "y": 0.0,
+        "z": 34.0
+      }
+    },
+    {
+      "name": "gold_block",
+      "display_name": "Block of Gold",
+      "type": 173,
+      "bounding_box": "block",
+      "position": {
+        "x": 22.0,
+        "y": 0.0,
+        "z": 34.0
+      }
+    }
+  ],
+  "gold_block_positions": [
+    {
+      "x": -22,
+      "z": 6
+    },
+    {
+      "x": 22,
+      "z": 6
+    },
+    {
+      "x": -22,
+      "z": 10
+    },
+    {
+      "x": 22,
+      "z": 10
+    },
+    {
+      "x": -22,
+      "z": 14
+    },
+    {
+      "x": 22,
+      "z": 14
+    },
+    {
+      "x": -22,
+      "z": 18
+    },
+    {
+      "x": 22,
+      "z": 18
+    },
+    {
+      "x": -22,
+      "z": 22
+    },
+    {
+      "x": 22,
+      "z": 22
+    },
+    {
+      "x": -22,
+      "z": 26
+    },
+    {
+      "x": 22,
+      "z": 26
+    },
+    {
+      "x": -22,
+      "z": 30
+    },
+    {
+      "x": 22,
+      "z": 30
+    },
+    {
+      "x": -22,
+      "z": 34
+    },
+    {
+      "x": 22,
+      "z": 34
+    }
+  ],
+  "flag_positions": [
+    {
+      "x": -22,
+      "z": -34
+    },
+    {
+      "x": 22,
+      "z": -34
+    },
+    {
+      "x": -22,
+      "z": -30
+    },
+    {
+      "x": 22,
+      "z": -30
+    },
+    {
+      "x": -22,
+      "z": -26
+    },
+    {
+      "x": 22,
+      "z": -26
+    },
+    {
+      "x": 22,
+      "z": -22
+    },
+    {
+      "x": 22,
+      "z": -18
+    },
+    {
+      "x": 22,
+      "z": -14
+    },
+    {
+      "x": 22,
+      "z": -10
+    },
+    {
+      "x": 22,
+      "z": -6
+    },
+    {
+      "x": 22,
+      "z": 6
+    },
+    {
+      "x": 22,
+      "z": 10
+    },
+    {
+      "x": 22,
+      "z": 14
+    },
+    {
+      "x": 22,
+      "z": 18
+    },
+    {
+      "x": 22,
+      "z": 22
+    }
+  ],
+  "flags_to_capture": [
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": -22.0,
+        "y": 2.0,
+        "z": -34.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": -22.0,
+        "y": 2.0,
+        "z": -30.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": -22.0,
+        "y": 2.0,
+        "z": -26.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": 6.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": 10.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": 14.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": 18.0
+      }
+    },
+    {
+      "name": "red_banner",
+      "display_name": "Red Banner",
+      "type": 575,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": 22.0
+      }
+    }
+  ],
+  "flags_to_protect": [
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -34.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -30.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -26.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -22.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -18.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -14.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -10.0
+      }
+    },
+    {
+      "name": "blue_banner",
+      "display_name": "Blue Banner",
+      "type": 572,
+      "bounding_box": "empty",
+      "position": {
+        "x": 22.0,
+        "y": 2.0,
+        "z": -6.0
+      }
+    }
+  ],
+  "map": {
+    "min_x": -28,
+    "max_x": 28,
+    "min_z": -40,
+    "max_z": 40,
+    "plane_y": 1
+  },
+  "assigned_teams": {
+    "CTF-52-2": "R"
+  },
+  "scores": {
+    "L": 0,
+    "R": 0
+  }
+}
