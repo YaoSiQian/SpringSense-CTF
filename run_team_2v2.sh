@@ -26,10 +26,11 @@ read -rp "?请输入自己的 team number: " MY_TEAM
 read -rp "?请输入对方的 team number: " AGAINST_TEAM
 read -rp "?请输入地图模式 (fixed/random，默认 fixed): " MAP_MODE
 echo "请选择策略："
-echo "  1) AdaptiveCTFStrategy"
-echo "  2) RandomWalkStrategy"
-echo "  3) PickClosestFlagAndBackStrategy"
-read -rp "?请输入策略编号 (1/2/3，默认 1): " STRATEGY_CHOICE
+echo "  1) EliteCTFStrategy (推荐)"
+echo "  2) AdaptiveCTFStrategy"
+echo "  3) RandomWalkStrategy"
+echo "  4) PickClosestFlagAndBackStrategy"
+read -rp "?请输入策略编号 (1/2/3/4，默认 1): " STRATEGY_CHOICE
 
 MAP_MODE="${MAP_MODE:-fixed}"
 STRATEGY_CHOICE="${STRATEGY_CHOICE:-1}"
@@ -51,12 +52,15 @@ fi
 
 case "$STRATEGY_CHOICE" in
   1)
-    STRATEGY="student_strategy.AdaptiveCTFStrategy"
+    STRATEGY="student_strategy.EliteCTFStrategy"
     ;;
   2)
-    STRATEGY="student_strategy.RandomWalkStrategy"
+    STRATEGY="student_strategy.AdaptiveCTFStrategy"
     ;;
   3)
+    STRATEGY="student_strategy.RandomWalkStrategy"
+    ;;
+  4)
     STRATEGY="default_strategy.PickClosestFlagAndBackStrategy"
     ;;
   *)

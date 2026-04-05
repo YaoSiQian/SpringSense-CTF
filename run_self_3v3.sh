@@ -36,17 +36,19 @@ fi
 
 print_strategy_menu() {
   echo "请选择策略："
-  echo "  1) AdaptiveCTFStrategy"
-  echo "  2) RandomWalkStrategy"
-  echo "  3) PickClosestFlagAndBackStrategy"
+  echo "  1) EliteCTFStrategy (推荐)"
+  echo "  2) AdaptiveCTFStrategy"
+  echo "  3) RandomWalkStrategy"
+  echo "  4) PickClosestFlagAndBackStrategy"
 }
 
 resolve_strategy_choice() {
   local choice="$1"
   case "$choice" in
-    1) echo "student_strategy.AdaptiveCTFStrategy" ;;
-    2) echo "student_strategy.RandomWalkStrategy" ;;
-    3) echo "default_strategy.PickClosestFlagAndBackStrategy" ;;
+    1) echo "student_strategy.EliteCTFStrategy" ;;
+    2) echo "student_strategy.AdaptiveCTFStrategy" ;;
+    3) echo "student_strategy.RandomWalkStrategy" ;;
+    4) echo "default_strategy.PickClosestFlagAndBackStrategy" ;;
     *)
       echo "Invalid strategy choice: $choice" >&2
       exit 1
