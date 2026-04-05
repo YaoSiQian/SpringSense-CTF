@@ -218,10 +218,11 @@ class World:
             return
         goal_signature = (action.x, action.z, action.radius, action.sprint, action.jump)
         try:
-            if action.sprint:
-                _set_control_state(self._bot, "sprint", True)
+            # 先跳后跑 - 确保跳跃状态先设置
             if action.jump:
                 _set_control_state(self._bot, "jump", True)
+            if action.sprint:
+                _set_control_state(self._bot, "sprint", True)
             movements = (
                 self._fast_movements
                 if action.sprint and self._fast_movements is not None
