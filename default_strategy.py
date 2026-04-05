@@ -34,7 +34,7 @@ class RandomWalkStrategy:
         actions: list[MoveTo | Chat] = []
         if switched_direction:
             actions.append(Chat(message=f"Switching direction toward x={self.current_target[0]}"))
-        actions.append(MoveTo(x=self.current_target[0], z=self.current_target[1], radius=1))
+        actions.append(MoveTo(x=self.current_target[0], z=self.current_target[1], radius=1, jump=True))
         return actions
 
 
@@ -69,7 +69,7 @@ class PickClosestFlagAndBackStrategy:
             if declared_intent != self.last_declared_intent:
                 actions.append(Chat(message="No valid flag or target found. Holding position."))
                 self.last_declared_intent = declared_intent
-            actions.append(MoveTo(x=obs.me.position.x, z=obs.me.position.z, radius=self.radius))
+            actions.append(MoveTo(x=obs.me.position.x, z=obs.me.position.z, radius=self.radius, jump=True))
             return actions
 
         target = target_block.grid_position
@@ -77,7 +77,7 @@ class PickClosestFlagAndBackStrategy:
         if declared_intent != self.last_declared_intent:
             actions.append(Chat(message=f"{intent} at ({target.x}, {target.z})"))
             self.last_declared_intent = declared_intent
-        actions.append(MoveTo(x=target.x, z=target.z, radius=self.radius))
+        actions.append(MoveTo(x=target.x, z=target.z, radius=self.radius, jump=True))
 
         return actions
 

@@ -11,18 +11,23 @@ STRATEGY_A="${STRATEGY_A:-}"
 STRATEGY_B="${STRATEGY_B:-}"
 PLAYER_DELAY_SECONDS="${PLAYER_DELAY_SECONDS:-2}"
 TEAM_SWITCH_DELAY_SECONDS="${TEAM_SWITCH_DELAY_SECONDS:-6}"
+MAP_MODE="${MAP_MODE:-fixed}"
 
 
 cleanup() {
   jobs -p | xargs -r kill 2>/dev/null || true
 }
-trap cleanup EXIT INT TERM
+trap cleanup INT TERM
+
+pids=()
 
 read -rp "请输入队伍 A 的 team number (默认 ${TEAM_A}): " TEAM_A_INPUT
 read -rp "请输入队伍 B 的 team number (默认 ${TEAM_B}): " TEAM_B_INPUT
+read -rp "请输入地图模式 (fixed/random，默认 ${MAP_MODE}): " MAP_MODE_INPUT
 
 TEAM_A="${TEAM_A_INPUT:-$TEAM_A}"
 TEAM_B="${TEAM_B_INPUT:-$TEAM_B}"
+MAP_MODE="${MAP_MODE_INPUT:-$MAP_MODE}"
 
 if [[ ! "$TEAM_A" =~ ^[0-9]+$ ]] || (( TEAM_A <= 0 )); then
   echo "Invalid team A number: $TEAM_A" >&2
@@ -31,6 +36,11 @@ fi
 
 if [[ ! "$TEAM_B" =~ ^[0-9]+$ ]] || (( TEAM_B <= 0 )); then
   echo "Invalid team B number: $TEAM_B" >&2
+  exit 1
+fi
+
+if [[ "$MAP_MODE" != "fixed" && "$MAP_MODE" != "random" ]]; then
+  echo "Invalid map mode: $MAP_MODE" >&2
   exit 1
 fi
 
@@ -80,31 +90,59 @@ launch_team() {
   local strategy="$3"
   local player_no
   for ((player_no = 1; player_no <= TEAM_SIZE; player_no++)); do
-    echo "Launching team $team player $player_no against $against with $strategy"
-    "$PYTHON_BIN" "$ROOT_DIR/main.py" \
+    local log_path="$LOG_DIR/team-${team}-player-${player_no}.log"
+    echo "Launching team $team player $player_no against $against with $strategy -> $log_path"
+    "$PYTHON_BIN" -u "$ROOT_DIR/main.py" \
       --my-no "$player_no" \
       --my-team "$team" \
       --against "$against" \
       --per-team-player "$TEAM_SIZE" \
+      --map "$MAP_MODE" \
       --strategy "$strategy" \
       --server "$SERVER" \
       --port "$PORT" \
-      --verbose &
+      --verbose >"$log_path" 2>&1 &
+    pids+=($!)
     if (( player_no < TEAM_SIZE )); then
       sleep "$PLAYER_DELAY_SECONDS"
     fi
   done
 }
 
+RUN_TS="$(date +%Y-%m-%d_%H-%M-%S)"
+LOG_DIR="${LOG_DIR:-$ROOT_DIR/logs/self_3v3/$RUN_TS}"
+mkdir -p "$LOG_DIR"
+
 echo "Starting self 3v3: team $TEAM_A vs team $TEAM_B on $SERVER:$PORT"
 echo "Team size: $TEAM_SIZE"
 echo "Team A strategy: $STRATEGY_A"
 echo "Team B strategy: $STRATEGY_B"
+echo "Map mode: $MAP_MODE"
 echo "Player launch delay: ${PLAYER_DELAY_SECONDS}s"
 echo "Team switch delay: ${TEAM_SWITCH_DELAY_SECONDS}s"
+echo "Log dir: $LOG_DIR"
 
 launch_team "$TEAM_A" "$TEAM_B" "$STRATEGY_A"
 sleep "$TEAM_SWITCH_DELAY_SECONDS"
 launch_team "$TEAM_B" "$TEAM_A" "$STRATEGY_B"
 
-wait
+wait_for_bots() {
+  local failed=0
+  local pid
+  for pid in "${pids[@]}"; do
+    if ! wait "$pid"; then
+      failed=1
+      echo "Bot process $pid exited early. Check logs in $LOG_DIR" >&2
+    fi
+  done
+  return $failed
+}
+
+if wait_for_bots; then
+  echo "Game ended for self 3v3 match."
+  echo "Logs saved to $LOG_DIR"
+else
+  echo "One or more bot processes exited unexpectedly." >&2
+  echo "Logs saved to $LOG_DIR" >&2
+  exit 1
+fi

@@ -104,13 +104,13 @@ class SimpleCTFStrategy:
                 if self.last_intent != "returning":
                     actions.append(Chat(message=f"Returning flag to ({target.x}, {target.z})"))
                     self.last_intent = "returning"
-                actions.append(MoveTo(x=target.x, z=target.z, radius=0))
+                actions.append(MoveTo(x=target.x, z=target.z, radius=0, jump=True))
             else:
                 # 没有空目标点，原地等待
                 if self.last_intent != "waiting":
                     actions.append(Chat(message="No empty targets, holding position"))
                     self.last_intent = "waiting"
-                actions.append(MoveTo(x=me.position.x, z=me.position.z, radius=0))
+                actions.append(MoveTo(x=me.position.x, z=me.position.z, radius=0, jump=True))
         else:
             # 去夺取最近的敌方旗帜
             flags = obs.flags_to_capture
@@ -125,13 +125,13 @@ class SimpleCTFStrategy:
                 if self.last_intent != "capturing":
                     actions.append(Chat(message=f"Capturing flag at ({target.x}, {target.z})"))
                     self.last_intent = "capturing"
-                actions.append(MoveTo(x=target.x, z=target.z, radius=0))
+                actions.append(MoveTo(x=target.x, z=target.z, radius=0, jump=True))
             else:
                 # 没有可夺取的旗帜
                 if self.last_intent != "searching":
                     actions.append(Chat(message="No flags to capture"))
                     self.last_intent = "searching"
-                actions.append(MoveTo(x=me.position.x, z=me.position.z, radius=0))
+                actions.append(MoveTo(x=me.position.x, z=me.position.z, radius=0, jump=True))
 
         return actions
 

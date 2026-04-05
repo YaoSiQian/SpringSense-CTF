@@ -216,10 +216,12 @@ class World:
         pathfinder = getattr(self._bot, "pathfinder", None)
         if pathfinder is None:
             return
-        goal_signature = (action.x, action.z, action.radius, action.sprint)
+        goal_signature = (action.x, action.z, action.radius, action.sprint, action.jump)
         try:
             if action.sprint:
                 _set_control_state(self._bot, "sprint", True)
+            if action.jump:
+                _set_control_state(self._bot, "jump", True)
             movements = (
                 self._fast_movements
                 if action.sprint and self._fast_movements is not None
@@ -250,6 +252,7 @@ class World:
         try:
             self._last_move_goal = None
             _set_control_state(self._bot, "sprint", False)
+            _set_control_state(self._bot, "jump", False)
             self._bot.pathfinder.setGoal(None)
         except Exception:
             try:
@@ -338,8 +341,15 @@ class World:
 
     def inspect(self) -> dict[str, Any]:
         self._connect_bot()
+        self._log(f"Capturing snapshot...")
         time.sleep(self.settle_seconds)
-        return self._capture_snapshot()
+        snapshot = self._capture_snapshot()
+        self._log(
+            f"Snapshot captured: {snapshot['summary']['block_count']} blocks, "
+            f"{snapshot['summary']['entity_count']} entities, "
+            f"{len(snapshot['players'])} players"
+        )
+        return snapshot
 
     def close(self) -> None:
         if self._bot is None:
@@ -442,9 +452,7 @@ class World:
 
         try:
             once(bot, "login")
-            self._log(
-                f"Connected to {self.server}:{self.port} as {self.bot_name}; waiting for spawn..."
-            )
+            self._log(f"Connected to {self.server}:{self.port} as {self.bot_name}")
         except Exception as exc:
             detail = self._connection_error_message or self._disconnect_reason
             raise RuntimeError(
@@ -452,16 +460,26 @@ class World:
                 f"{_format_optional_detail(detail)}Root cause: {type(exc).__name__}: {exc}"
             ) from exc
 
-        try:
-            once(bot, "spawn")
-            self._log(f"Spawned successfully on server {self.server}:{self.port}")
-        except Exception as exc:
-            detail = self._connection_error_message or self._disconnect_reason
-            raise RuntimeError(
-                f"Connected to {self.server}:{self.port}, but the bot never spawned. "
-                f"{_format_optional_detail(detail)}This usually means a version/auth/login-lobby issue. "
-                f"Root cause: {type(exc).__name__}: {exc}"
-            ) from exc
+        # spawn_timeout = 60
+        # start_time = time.time()
+        # self._log("Waiting for spawn...")
+        # while not self._check_spawned(bot):
+        #     if time.time() - start_time > spawn_timeout:
+        #         detail = self._connection_error_message or self._disconnect_reason
+        #         raise RuntimeError(
+        #             f"Connected to {self.server}:{self.port}, but the bot never spawned within {spawn_timeout}s. "
+        #             f"{_format_optional_detail(detail)}This usually means a version/auth/login-lobby issue."
+        #         )
+        #     time.sleep(1)
+        #     elapsed = int(time.time() - start_time)
+        #     self._log(f"Still waiting for spawn... ({elapsed}s elapsed)")
+
+        # position = bot.entity.position
+        # self._log(
+        #     f"Spawned successfully on server {self.server}:{self.port} at "
+        #     f"position=({position.x:.1f}, {position.y:.1f}, {position.z:.1f}), "
+        #     f"dimension={bot.game.dimension}, mode={bot.game.gameMode}"
+        # )
 
         bot.loadPlugin(pathfinder.pathfinder)
 
@@ -620,6 +638,12 @@ class World:
         except Exception:
             return False
 
+    def _check_spawned(self, bot: Any) -> bool:
+        try:
+            return bot.entity is not None and bot.game.dimension is not None
+        except Exception:
+            return False
+
     def _install_connection_debug_listeners(self, bot: Any) -> None:
         On = self._js_bridge.On
 
@@ -627,14 +651,14 @@ class World:
         def _on_error(error: Any):
             rendered = _coerce_message_text(error)
             self._connection_error_message = rendered or repr(error)
-            self._log(f"Bot connection error: {self._connection_error_message}")
+            self._log(f"[DEBUG] Bot connection error: {self._connection_error_message}")
 
         @On(bot, "kicked")
         def _on_kicked(reason: Any, *args: Any):
             rendered = _coerce_message_text(reason)
             extras = " ".join(part for part in (_coerce_message_text(arg) for arg in args) if part)
             self._disconnect_reason = " ".join(part for part in (rendered, extras) if part) or "kicked"
-            self._log(f"Bot kicked: {self._disconnect_reason}")
+            self._log(f"[DEBUG] Bot kicked: {self._disconnect_reason}")
 
         @On(bot, "end")
         def _on_end(reason: Any = None, *args: Any):
@@ -642,7 +666,15 @@ class World:
             extras = " ".join(part for part in (_coerce_message_text(arg) for arg in args) if part)
             detail = " ".join(part for part in (rendered, extras) if part) or "connection ended"
             self._disconnect_reason = detail
-            self._log(f"Bot connection ended: {detail}")
+            self._log(f"[DEBUG] Bot connection ended: {detail}")
+
+        @On(bot, "login")
+        def _on_login(packet: Any):
+            self._log(f"[DEBUG] Bot login event received")
+
+        @On(bot, "spawn")
+        def _on_spawn(packet: Any):
+            self._log(f"[DEBUG] Bot spawn event received")
 
     def _append_log_line(self, log_path: Path, payload: Mapping[str, Any]) -> None:
         log_path.parent.mkdir(parents=True, exist_ok=True)
@@ -807,6 +839,7 @@ def _serialize_action(action: Action) -> dict[str, Any]:
             "z": action.z,
             "radius": action.radius,
             "sprint": action.sprint,
+            "jump": action.jump,
         }
     if isinstance(action, Chat):
         return {"type": "Chat", "message": action.message}

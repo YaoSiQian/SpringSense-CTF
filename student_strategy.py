@@ -593,10 +593,11 @@ class EliteCTFStrategy:
         target: GridPosition, 
         label: str, 
         radius: int = 1, 
-        sprint: bool = True
+        sprint: bool = True,
+        jump: bool = True
     ) -> MoveTo:
         """创建移动动作"""
-        return MoveTo(x=target.x, z=target.z, radius=radius, sprint=sprint)
+        return MoveTo(x=target.x, z=target.z, radius=radius, sprint=sprint, jump=jump)
 
     def _find_safe_path_target(
         self, 
@@ -943,6 +944,7 @@ class _Objective:
     target: GridPosition
     radius: int
     sprint: bool
+    jump: bool = True
 
 
 @dataclass
@@ -984,6 +986,7 @@ class AdaptiveCTFStrategy:
                 z=target.z,
                 radius=objective.radius,
                 sprint=objective.sprint,
+                jump=objective.jump,
             )
         )
         return actions

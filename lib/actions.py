@@ -10,6 +10,7 @@ class MoveTo:
     z: int
     radius: int = 1
     sprint: bool = True
+    jump: bool = False
 
 
 @dataclass(frozen=True, slots=True)
