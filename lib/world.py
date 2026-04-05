@@ -648,9 +648,10 @@ class World:
         On = self._js_bridge.On
 
         @On(bot, "error")
-        def _on_error(error: Any):
+        def _on_error(error: Any, *args: Any):
             rendered = _coerce_message_text(error)
-            self._connection_error_message = rendered or repr(error)
+            extras = " ".join(part for part in (_coerce_message_text(arg) for arg in args) if part)
+            self._connection_error_message = " ".join(part for part in (rendered, extras) if part) or repr(error)
             self._log(f"[DEBUG] Bot connection error: {self._connection_error_message}")
 
         @On(bot, "kicked")
