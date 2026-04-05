@@ -49,7 +49,7 @@ def get_random_opponent_team() -> int:
 
 
 def initialize_js_bridge():
-    """初始化JavaScript桥接"""
+    """初始化JavaScript桥接 - 每个bot需要独立的JS运行时"""
     try:
         import javascript
         from javascript import On, off, require, once
@@ -99,7 +99,7 @@ def load_strategy(qualified_name: str):
 
 
 class BotController:
-    """Bot控制器 - 包装World类并添加胜利检测"""
+    """Bot控制器 - 每个控制器有独立的JS运行时"""
     
     def __init__(self, team_num: int, player_num: int, against_team: int | None,
                  strategy_name: str, name: str):
@@ -115,14 +115,23 @@ class BotController:
         self.game_ended = False
         self.error: Exception | None = None
         self.thread: threading.Thread | None = None
+        self._js_runtime: Any = None
+        self._js_bridge: Any = None
         
-    def _run(self, js_bridge):
+    def _init_js(self):
+        """初始化独立的JavaScript运行时"""
+        self._js_runtime, self._js_bridge = initialize_js_bridge()
+        
+    def _run(self):
         """在独立线程中运行bot"""
         from lib.world import (
             World,
             build_multi_log_path,
             build_final_shot_path,
         )
+        
+        # 每个bot需要独立的JS运行时
+        self._init_js()
         
         # 创建自定义World类来检测胜利
         class VictoryDetectingWorld(World):
@@ -145,7 +154,7 @@ class BotController:
                     if any(kw in full_text.lower() for kw in victory_keywords):
                         inner_self._outer.victory_detected = True
                         inner_self._outer.victory_team = "7426"
-                        print(f"🎉 [{self.name}] VICTORY for 7426 detected! Msg: {full_text[:80]}")
+                        print(f"🎉 [{self.name}] VICTORY for 7426 detected!")
         
         run_time = datetime.now()
         multi_log_path = build_multi_log_path(
@@ -163,9 +172,9 @@ class BotController:
             # 加载策略
             strategy = load_strategy(self.strategy_name)
             
-            # 创建World
+            # 创建World - 使用独立的JS桥接
             self.world = VictoryDetectingWorld(
-                js_bridge=js_bridge,
+                js_bridge=self._js_bridge,
                 team_num=self.team_num,
                 player_num=self.player_num,
                 against_team=self.against_team,
@@ -201,16 +210,24 @@ class BotController:
         except Exception as e:
             self.error = e
             print(f"❌ [{self.name}] Error: {e}")
+            import traceback
+            traceback.print_exc()
         finally:
             if self.world:
                 try:
                     self.world.close()
                 except Exception:
                     pass
+            # 清理JS运行时
+            if self._js_runtime:
+                try:
+                    self._js_runtime.terminate()
+                except Exception:
+                    pass
     
-    def start(self, js_bridge):
+    def start(self):
         """启动bot线程"""
-        self.thread = threading.Thread(target=self._run, args=(js_bridge,))
+        self.thread = threading.Thread(target=self._run)
         self.thread.start()
     
     def stop(self):
@@ -244,32 +261,29 @@ def run_match(match_number: int) -> dict:
     print(f"Team B (Opponent): CTF-{opponent_display}-{OPPONENT_PLAYER} (RandomWalkStrategy)")
     print()
     
-    # 初始化JavaScript
-    js_runtime, js_bridge = initialize_js_bridge()
+    # 创建两个bot控制器 - 每个都有独立的JS运行时
+    main_bot = BotController(
+        team_num=MAIN_TEAM,
+        player_num=MAIN_PLAYER,
+        against_team=opponent_team,
+        strategy_name="default_strategy.PickClosestFlagAndBackStrategy",
+        name=f"7426"
+    )
+    
+    opponent_bot = BotController(
+        team_num=opponent_team,
+        player_num=OPPONENT_PLAYER,
+        against_team=MAIN_TEAM,
+        strategy_name="default_strategy.RandomWalkStrategy",
+        name=opponent_display
+    )
     
     try:
-        # 创建两个bot控制器
-        main_bot = BotController(
-            team_num=MAIN_TEAM,
-            player_num=MAIN_PLAYER,
-            against_team=opponent_team,
-            strategy_name="default_strategy.PickClosestFlagAndBackStrategy",
-            name=f"7426"
-        )
-        
-        opponent_bot = BotController(
-            team_num=opponent_team,
-            player_num=OPPONENT_PLAYER,
-            against_team=MAIN_TEAM,
-            strategy_name="default_strategy.RandomWalkStrategy",
-            name=opponent_display
-        )
-        
-        # 启动两个bot
+        # 启动两个bot - 它们各自有独立的JS运行时
         print("Starting bots...")
-        main_bot.start(js_bridge)
-        time.sleep(2)  # 延迟启动对手，避免同时连接
-        opponent_bot.start(js_bridge)
+        main_bot.start()
+        time.sleep(1)  # 短暂延迟，避免同时连接造成服务器压力
+        opponent_bot.start()
         
         # 等待游戏结束
         print("Game in progress...")
@@ -320,11 +334,11 @@ def run_match(match_number: int) -> dict:
         }
         
     finally:
-        # 清理JavaScript运行时
-        try:
-            js_runtime.terminate()
-        except Exception as e:
-            print(f"Warning: Error terminating JS runtime: {e}")
+        # 确保清理
+        main_bot.stop()
+        opponent_bot.stop()
+        main_bot.join(timeout=5)
+        opponent_bot.join(timeout=5)
 
 
 def main():
