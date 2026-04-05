@@ -1,9 +1,10 @@
 from __future__ import annotations
 
+import math
 import random
 from dataclasses import dataclass, field
 from enum import Enum, auto
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional, Tuple
 
 from lib.actions import Chat, MoveTo
 from lib.observation import BlockState, GridPosition, Observation, PlayerState
@@ -91,6 +92,8 @@ class EliteCTFStrategy:
     4. 安全夺旗评估（距离+安全性）
     5. 团队协作（信息共享）
     6. 快速脱困（卡位检测与逃脱）
+    7. 插旗后冷却（避免卡在金块区）
+    8. 预防性绕树避障
     """
     
     # 角色与状态
@@ -102,7 +105,7 @@ class EliteCTFStrategy:
     objective_hold_ticks: int = 0
     last_declared_intent: tuple[str, int, int] | None = None
     
-    # 卡位检测
+    # 卡位检测（原有）
     last_position: GridPosition | None = None
     stuck_ticks: int = 0
     
@@ -117,6 +120,19 @@ class EliteCTFStrategy:
     
     # 调试模式
     verbose: bool = True
+    
+    # ===== 新增：半场判断（动态确定）=====
+    my_half_negative: Optional[bool] = None
+    
+    # ===== 新增：插旗后冷却机制 =====
+    had_flag_last_tick: bool = False
+    escape_target: Optional[Tuple[int, int]] = None
+    post_plant_cooldown: int = 0
+    
+    # ===== 新增：预防性绕树避障 =====
+    last_pos_float: Optional[Tuple[float, float]] = None
+    stuck_ticks_avoidance: int = 0
+    avoidance_target: Optional[Tuple[int, int]] = None
 
     def on_game_start(self, obs: Observation) -> None:
         """游戏开始时初始化"""
@@ -129,24 +145,120 @@ class EliteCTFStrategy:
         self.stuck_ticks = 0
         self.role_switch_cooldown = 0
         self.return_home_ticks = 0
+        
+        # ===== 新增：动态确定半场 =====
+        if obs.my_targets:
+            self.my_half_negative = obs.my_targets[0].grid_position.x < 0
+        else:
+            self.my_half_negative = True  # 默认左队
+        
+        # ===== 新增：重置插旗冷却 =====
+        self.had_flag_last_tick = False
+        self.escape_target = None
+        self.post_plant_cooldown = 0
+        
+        # ===== 新增：重置避障状态 =====
+        self.last_pos_float = None
+        self.stuck_ticks_avoidance = 0
+        self.avoidance_target = None
 
     def compute_next_action(self, obs: Observation) -> list[Action]:
         """
         主决策函数 - 每 tick 调用
         
         决策优先级：
-        1. 越狱逃脱（最高优先级）
-        2. 卡位脱困
-        3. 持旗返回
-        4. 救援队友
-        5. 拦截携旗敌人
-        6. 夺旗
-        7. 防守/中场控制
+        1. 插旗后冷却/脱离（新增）
+        2. 预防性绕树避障（新增）
+        3. 越狱逃脱
+        4. 卡位脱困
+        5. 持旗返回
+        6. 救援队友
+        7. 拦截携旗敌人
+        8. 夺旗
+        9. 防守/中场控制
         """
         me = obs.self_player
         actions: list[Action] = []
         
-        # 1. 检查卡位并尝试脱困
+        # ===== 新增：插旗检测与冷却处理 =====
+        just_planted = self.had_flag_last_tick and not me.has_flag
+        self.had_flag_last_tick = me.has_flag
+        
+        if just_planted:
+            # 刚插旗成功，设置冷却并生成脱离目标
+            self.post_plant_cooldown = 8
+            direction = 1 if self._is_enemy_half(me.position.x) else -1
+            escape_x = me.position.x + direction * 5
+            escape_x = max(-28, min(28, escape_x))  # 限制在地图范围内
+            self.escape_target = (int(escape_x), me.position.z)
+            self.last_declared_intent = None
+            # 重置避障状态
+            self.stuck_ticks_avoidance = 0
+            self.avoidance_target = None
+        
+        # 冷却递减
+        if self.post_plant_cooldown > 0:
+            self.post_plant_cooldown -= 1
+        
+        # 优先执行脱离移动（远离金块区）
+        if self.escape_target is not None:
+            if abs(me.position.x - self.escape_target[0]) <= 1 and abs(me.position.z - self.escape_target[1]) <= 1:
+                self.escape_target = None
+            else:
+                return [self._create_move(
+                    GridPosition(x=self.escape_target[0], z=self.escape_target[1]),
+                    "Moving away from planted block",
+                    radius=0
+                )]
+        
+        # ===== 新增：预防性绕树避障逻辑 =====
+        current_pos_float = (me.position.x, me.position.z)
+        if self.last_pos_float is not None:
+            dist_moved = math.hypot(
+                current_pos_float[0] - self.last_pos_float[0],
+                current_pos_float[1] - self.last_pos_float[1]
+            )
+            if dist_moved < 0.1:  # 几乎没移动，可能被树挡住
+                self.stuck_ticks_avoidance += 1
+            else:
+                self.stuck_ticks_avoidance = 0
+        self.last_pos_float = current_pos_float
+        
+        # 如果已有绕行目标，继续执行
+        if self.avoidance_target is not None:
+            if abs(me.position.x - self.avoidance_target[0]) <= 1 and abs(me.position.z - self.avoidance_target[1]) <= 1:
+                self.avoidance_target = None
+                self.stuck_ticks_avoidance = 0
+            else:
+                return [self._create_move(
+                    GridPosition(x=self.avoidance_target[0], z=self.avoidance_target[1]),
+                    "Avoiding tree obstacle",
+                    radius=0
+                )]
+        
+        # 检测到卡住且没有活跃绕行目标时，生成新的绕行点
+        if self.stuck_ticks_avoidance > 3 and self.avoidance_target is None:
+            # 向 z 方向随机一侧移动 5 格来绕开障碍
+            direction = 1 if self.rng.random() > 0.5 else -1
+            avoid_z = int(me.position.z + direction * 5)
+            avoid_z = max(-28, min(28, avoid_z))  # 保持在地图边界内
+            self.avoidance_target = (int(me.position.x), avoid_z)
+            return [self._create_move(
+                GridPosition(x=self.avoidance_target[0], z=self.avoidance_target[1]),
+                "Avoiding tree obstacle",
+                radius=0
+            )]
+        
+        # 冷却期间：持续向敌方半场深处移动（确保远离金块）
+        if self.post_plant_cooldown > 0:
+            target_x = 15 if self._is_enemy_half(me.position.x) else -15
+            return [self._create_move(
+                GridPosition(x=target_x, z=me.position.z),
+                "Post-plant cooldown",
+                radius=0
+            )]
+        
+        # 1. 检查卡位并尝试脱困（原有逻辑）
         escape_action = self._try_escape_if_stuck(obs)
         if escape_action is not None:
             return escape_action
@@ -187,6 +299,20 @@ class EliteCTFStrategy:
     # 角色分配
     # =========================================================================
 
+    # =========================================================================
+    # 新增：半场判断辅助方法
+    # =========================================================================
+    
+    def _is_my_half(self, x: int) -> bool:
+        """判断 X 坐标是否在己方半场"""
+        if self.my_half_negative is None:
+            return True
+        return (x < 0) if self.my_half_negative else (x >= 0)
+    
+    def _is_enemy_half(self, x: int) -> bool:
+        """判断 X 坐标是否在敌方半场"""
+        return not self._is_my_half(x)
+    
     def _update_role(self, obs: Observation) -> None:
         """
         动态角色分配逻辑
@@ -208,7 +334,7 @@ class EliteCTFStrategy:
         # 高优先级：敌方持旗 → 需要防守
         if enemy_carriers > 0:
             # 如果自己在敌方半场，不适合防守，保持进攻
-            if _is_on_our_side(me.position, obs.team):
+            if self._is_my_half(me.position.x):
                 new_role = Role.DEFENDER
         
         # 中优先级：多人被困 → 需要支援
@@ -260,21 +386,23 @@ class EliteCTFStrategy:
     def _return_flag(self, obs: Observation) -> list[Action]:
         """
         持旗返回策略：
-        - 选择最近的空金块
+        - 选择最近的空金块（严格过滤：只选己方半场的）
         - 避开敌人
         - 紧急模式：radius=0, sprint=True
         """
         me = obs.self_player
         self.return_home_ticks += 1
         
-        targets = obs.my_targets
+        # 只选择己方半场的目标点
+        targets = [t for t in obs.my_targets if self._is_my_half(t.grid_position.x)]
+        
         if not targets:
             # 没有目标点，保持原地或去安全位置
             safe_pos = _get_safe_position(obs)
             return [self._create_move(safe_pos, "No target, holding", radius=1)]
         
         # 选择最近的目标点
-        target = min(targets, key=lambda t: _manhattan_distance(me.position, t.grid_position))
+        target = min(targets, key=lambda t: _euclidean_distance(me.position, t.grid_position))
         target_pos = target.grid_position
         
         # 检查是否需要调整路径以避开敌人
@@ -402,8 +530,15 @@ class EliteCTFStrategy:
         - 距离
         - 返回路径的安全性
         - 敌方防守压力
+        - 严格半场过滤（只选敌方半场的旗帜）
         """
         flags = _unplaced_flags(obs.flags_to_capture, obs.gold_block_positions)
+        
+        # 只选择敌方半场的旗帜
+        flags = tuple(
+            flag for flag in flags 
+            if self._is_enemy_half(flag.grid_position.x)
+        )
         
         if not flags:
             # 没有可夺旗帜，转为防守
@@ -411,6 +546,9 @@ class EliteCTFStrategy:
         
         # 选择最优旗帜
         target_flag = self._pick_best_flag(obs, flags)
+        if target_flag is None:
+            return self._defend_base(obs)
+        
         target_pos = target_flag.grid_position
         
         print(f"[EliteCTF] CAPTURE {target_pos.x},{target_pos.z}")
@@ -418,22 +556,32 @@ class EliteCTFStrategy:
             self._create_move(target_pos, "Attacking flag", radius=1, sprint=True)
         ]
 
-    def _pick_best_flag(self, obs: Observation, flags: tuple[BlockState, ...]) -> BlockState:
+    def _pick_best_flag(self, obs: Observation, flags: tuple[BlockState, ...]) -> Optional[BlockState]:
         """
         选择最优夺旗目标
         
         评分 = 距离成本 + 安全成本
         - 距离成本：当前位置到旗帜的距离
         - 安全成本：夺旗后返回的风险评估
+        - 排除距离过近的目标（避免原地踏步）
         """
         me = obs.self_player
         
+        # 过滤掉距离小于 0.5 格的目标（避免选自身所在位置）
+        valid_flags = [
+            flag for flag in flags
+            if _euclidean_distance(me.position, flag.grid_position) >= 0.5
+        ]
+        
+        if not valid_flags:
+            return None
+        
         def flag_score(flag: BlockState) -> float:
-            distance = _manhattan_distance(me.position, flag.grid_position)
+            distance = _euclidean_distance(me.position, flag.grid_position)
             safety_penalty = self._evaluate_flag_safety(flag, obs)
             return distance + safety_penalty
         
-        return min(flags, key=flag_score)
+        return min(valid_flags, key=flag_score)
 
     def _evaluate_flag_safety(self, flag: BlockState, obs: Observation) -> float:
         """
@@ -632,6 +780,11 @@ class EliteCTFStrategy:
 def _manhattan_distance(left: GridPosition, right: GridPosition) -> int:
     """曼哈顿距离"""
     return abs(left.x - right.x) + abs(left.z - right.z)
+
+
+def _euclidean_distance(left: GridPosition, right: GridPosition) -> float:
+    """欧几里得距离"""
+    return math.hypot(left.x - right.x, left.z - right.z)
 
 
 def _same_grid_position(left: GridPosition, right: GridPosition) -> bool:
