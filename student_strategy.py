@@ -977,7 +977,7 @@ class EliteCTFStrategy:
         return None
     
     def _escape_from_movement_stuck(self, obs: Observation) -> list[Action]:
-        """针对移动意图卡住的快速脱困"""
+        """针对移动意图卡住的快速脱困 - 综合处理动物、树叶和硬障碍物"""
         me = obs.self_player
         actions: list[Action] = []
         
@@ -988,32 +988,6 @@ class EliteCTFStrategy:
             and _manhattan_distance(e.grid_position, me.position) <= 2
         ]
         
-        if nearby_animals:
-            escape_x, escape_z = 0, 0
-            for animal in nearby_animals:
-                dx = me.position.x - animal.grid_position.x
-                dz = me.position.z - animal.grid_position.z
-                escape_x += dx
-                escape_z += dz
-            
-            magnitude = math.hypot(escape_x, escape_z)
-            if magnitude > 0:
-                scale = 6 / magnitude
-                escape_x *= scale
-                escape_z *= scale
-            else:
-                escape_z = 6 if me.position.z <= 0 else -6
-            
-            target = GridPosition(
-                x=int(me.position.x + escape_x),
-                z=int(me.position.z + escape_z)
-            )
-            target = _clamp_to_map(target, obs)
-            
-            actions.append(Chat(message="怎么走不动了！(>_<) 换个方向试试~"))
-            actions.append(MoveTo(x=target.x, z=target.z, radius=0, sprint=True, jump=True))
-            return actions
-        
         # 检测周围树叶
         leaves_blocks = [
             b for b in obs.blocks
@@ -1021,20 +995,54 @@ class EliteCTFStrategy:
             and _manhattan_distance(b.grid_position, me.position) <= 1
         ]
         
+        # 检测硬障碍物（栅栏等）
+        hard_obstacles = [
+            b for b in obs.blocks
+            if _is_hard_block_name(b.name) and not self._is_leaves_block(b.name)
+            and _manhattan_distance(b.grid_position, me.position) <= 2
+        ]
+        
+        # 综合计算逃逸向量
+        escape_x, escape_z = 0, 0
+        has_obstacles = False
+        
+        # 远离动物
+        if nearby_animals:
+            has_obstacles = True
+            for animal in nearby_animals:
+                dx = me.position.x - animal.grid_position.x
+                dz = me.position.z - animal.grid_position.z
+                dist = max(1, math.hypot(dx, dz))
+                weight = 1.5 / dist
+                escape_x += dx * weight
+                escape_z += dz * weight
+        
+        # 远离树叶
         if leaves_blocks:
-            escape_x, escape_z = 0, 0
+            has_obstacles = True
             for leaf in leaves_blocks:
                 dx = me.position.x - leaf.grid_position.x
                 dz = me.position.z - leaf.grid_position.z
                 escape_x += dx
                 escape_z += dz
-            
-            if abs(escape_z) < 1:
+        
+        # 远离硬障碍物（权重更高）
+        if hard_obstacles:
+            has_obstacles = True
+            for obstacle in hard_obstacles:
+                dx = me.position.x - obstacle.grid_position.x
+                dz = me.position.z - obstacle.grid_position.z
+                escape_x += dx * 2
+                escape_z += dz * 2
+        
+        if has_obstacles:
+            # 确保有足够的逃逸分量
+            if abs(escape_z) < 0.5:
                 escape_z = 5 if me.position.z <= 0 else -5
             
             magnitude = math.hypot(escape_x, escape_z)
             if magnitude > 0:
-                scale = 5 / magnitude
+                scale = 6 / magnitude
                 escape_x *= scale
                 escape_z *= scale
             
@@ -1044,11 +1052,21 @@ class EliteCTFStrategy:
             )
             target = _clamp_to_map(target, obs)
             
-            actions.append(Chat(message="被树叶挡住了！(>_<) 换个方向走~"))
+            # 确定消息类型
+            if nearby_animals and (leaves_blocks or hard_obstacles):
+                msg = "被动物和障碍物卡住了！(>_<) 正在综合脱困~"
+            elif nearby_animals:
+                msg = "怎么走不动了！(>_<) 换个方向试试~"
+            elif leaves_blocks:
+                msg = "被树叶挡住了！(>_<) 换个方向走~"
+            else:
+                msg = "被障碍物挡住了！(>_<) 正在绕行~"
+            
+            actions.append(Chat(message=msg))
             actions.append(MoveTo(x=target.x, z=target.z, radius=0, sprint=True, jump=True))
             return actions
         
-        # 没有明显障碍，向垂直方向移动
+        # 没有检测到明显障碍，向垂直方向移动
         if self.current_objective is not None:
             target = self.current_objective.target
             main_dx = target.x - me.position.x
@@ -1094,14 +1112,15 @@ class EliteCTFStrategy:
         return self._escape_from_stuck(obs)
     
     def _escape_from_stuck(self, obs: Observation) -> list[Action]:
-        """常规脱困"""
+        """常规脱困 - 同时处理动物和障碍物"""
         me = obs.self_player
         actions: list[Action] = []
         
-        very_nearby_animals = [
+        # 检测附近的动物（扩大检测范围）
+        nearby_animals = [
             e for e in obs.entities
             if e.entity_type == "animal"
-            and _manhattan_distance(e.grid_position, me.position) <= 1
+            and _manhattan_distance(e.grid_position, me.position) <= 3
         ]
         
         nearby_obstacles = [
@@ -1114,31 +1133,55 @@ class EliteCTFStrategy:
         if leaves_escape:
             return leaves_escape
         
-        if len(very_nearby_animals) > 3:
-            return self._escape_from_mooshrooms(obs, very_nearby_animals)
+        # 如果只有大量动物（>3），使用专门的哞菇脱困逻辑
+        if len(nearby_animals) > 3 and not nearby_obstacles:
+            return self._escape_from_mooshrooms(obs, nearby_animals)
         
-        if not nearby_obstacles:
+        # 计算综合逃逸向量（同时考虑动物和障碍物）
+        escape_x, escape_z = 0, 0
+        
+        # 远离动物（权重较低）
+        for animal in nearby_animals:
+            dx = me.position.x - animal.grid_position.x
+            dz = me.position.z - animal.grid_position.z
+            dist = max(1, math.hypot(dx, dz))
+            weight = 2.0 / dist  # 距离越近权重越高
+            escape_x += dx * weight
+            escape_z += dz * weight
+        
+        # 远离障碍物（权重较高，因为它们更硬）
+        for obstacle in nearby_obstacles:
+            dx = me.position.x - obstacle.grid_position.x
+            dz = me.position.z - obstacle.grid_position.z
+            escape_x += dx * 2.5
+            escape_z += dz * 2.5
+        
+        # 如果没有明显威胁，随机选择一个方向
+        if abs(escape_x) < 0.1 and abs(escape_z) < 0.1:
             directions = [(4, 0), (-4, 0), (0, 4), (0, -4), (3, 3), (-3, 3), (3, -3), (-3, -3)]
             dx, dz = self.rng.choice(directions)
             target = GridPosition(x=me.position.x + dx, z=me.position.z + dz)
         else:
-            escape_x, escape_z = 0, 0
+            # 归一化并扩展逃逸向量
+            magnitude = math.hypot(escape_x, escape_z)
+            if magnitude > 0:
+                scale = 6 / magnitude
+                escape_x *= scale
+                escape_z *= scale
             
-            for obstacle in nearby_obstacles:
-                dx = me.position.x - obstacle.grid_position.x
-                dz = me.position.z - obstacle.grid_position.z
-                escape_x += dx * 2
-                escape_z += dz * 2
-            
-            if escape_x != 0 or escape_z != 0:
-                target = GridPosition(
-                    x=me.position.x + (6 if escape_x > 0 else -6),
-                    z=me.position.z + (6 if escape_z > 0 else -6)
-                )
-            else:
-                target = GridPosition(x=me.position.x + 5, z=me.position.z)
+            target = GridPosition(
+                x=int(me.position.x + escape_x),
+                z=int(me.position.z + escape_z)
+            )
         
         target = _clamp_to_map(target, obs)
+        
+        # 确保目标点不会太近（至少移动4格）
+        if _manhattan_distance(me.position, target) < 4:
+            dz = 5 if me.position.z <= 0 else -5
+            target = GridPosition(x=target.x, z=me.position.z + dz)
+            target = _clamp_to_map(target, obs)
+        
         actions.append(Chat(message="怎么卡住了！(>_<) 正在努力挣脱中..."))
         actions.append(MoveTo(x=target.x, z=target.z, radius=0, sprint=True, jump=True))
         return actions
