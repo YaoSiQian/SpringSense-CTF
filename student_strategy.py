@@ -213,6 +213,11 @@ class EliteCTFStrategy:
     _chat_cooldown_seconds: float = field(default=3.0, repr=False)
     _pending_chat_message: str | None = field(default=None, repr=False)
     
+    # ========== 追逐状态跟踪 ==========
+    _chasing_target_name: str | None = field(default=None, repr=False)  # 当前追逐的敌人名字
+    _chasing_target_last_x: int | None = field(default=None, repr=False)  # 追逐目标上次x坐标
+    _chasing_start_x: int | None = field(default=None, repr=False)  # 追逐开始时的x坐标（用于检测跨越中界）
+    
     def on_game_start(self, obs: Observation) -> None:
         """游戏开始时初始化"""
         # 基础状态重置
@@ -376,9 +381,11 @@ class EliteCTFStrategy:
             closest_carrier = min(enemy_carriers,
                                  key=lambda e: _manhattan_distance(me.position, e.position))
             if self._should_intercept(obs, closest_carrier):
-                return self._intercept_enemy_with_prediction(obs, closest_carrier)
+                intercept_action = self._intercept_enemy_with_prediction(obs, closest_carrier)
+                if intercept_action:
+                    return intercept_action
         
-        # 8. 评估抓捕空载敌人
+        # 8. 评估抓捕空载敌人（己方区域积极追捕）
         capture_action = self._evaluate_capture_empty_enemy(obs)
         if capture_action:
             return capture_action
@@ -419,15 +426,11 @@ class EliteCTFStrategy:
         if threshold is None:
             threshold = EVASION_ENEMY_THRESHOLD
         
-        # 筛选危险敌人（在敌方半场且未坐牢的敌人）
+        # 筛选危险敌人：所有未坐牢的敌人（无论他们在哪个半场）
+        # 在敌方区域时，任何能动的敌人都是威胁！
         dangerous_enemies = [
             e for e in enemies
-            if self._is_enemy_half(e.position.x) and not e.in_prison
-        ]
-        # 筛选危险敌人（在敌方半场且未坐牢的敌人）
-        dangerous_enemies = [
-            e for e in enemies
-            if self._is_enemy_half(e.position.x) and not e.in_prison
+            if not e.in_prison
         ]
         
         if not dangerous_enemies:
@@ -659,7 +662,7 @@ class EliteCTFStrategy:
         actions.append(self._create_move(target_pos, "Returning flag", radius=0, sprint=True))
         return actions
     
-    def _intercept_enemy_with_prediction(self, obs: Observation, enemy: PlayerState) -> list[Action]:
+    def _intercept_enemy_with_prediction(self, obs: Observation, enemy: PlayerState) -> list[Action] | None:
         """
         拦截敌人（融合预测性拦截）
         
@@ -667,7 +670,25 @@ class EliteCTFStrategy:
         1. 使用 predict_enemy_target 预测敌人目标
         2. 在敌人当前位置和目标位置之间选择拦截点（0.4/0.6加权）
         3. 优先在己方半场拦截
+        4. 如果敌人跨越中界，放弃追逐
         """
+        me = obs.self_player
+        
+        # 检查是否正在追逐此敌人，且敌人已跨越中界
+        if self._chasing_target_name == enemy.name:
+            current_x_sign = 1 if enemy.position.x >= 0 else -1
+            last_x_sign = 1 if self._chasing_target_last_x >= 0 else -1
+            
+            # 如果敌人跨越中界，放弃追逐
+            if current_x_sign != last_x_sign and abs(enemy.position.x) < 5:
+                self._clear_chasing_state()
+                return None
+        
+        # 记录追逐状态
+        self._chasing_target_name = enemy.name
+        self._chasing_target_last_x = enemy.position.x
+        self._chasing_start_x = me.position.x
+        
         # 预测敌人目标
         predicted_target = self._predict_enemy_target(enemy, obs)
         
@@ -712,10 +733,38 @@ class EliteCTFStrategy:
         夺旗（融合僵持检测）
         
         策略：
-        1. 获取可用旗帜
-        2. 如果 _switch_target 为 True，排除当前攻击目标
-        3. 选择最优旗帜
+        1. 敌方区域优先：检查8格内是否有敌人，有则先逃避
+        2. 获取可用旗帜
+        3. 如果 _switch_target 为 True，排除当前攻击目标
+        4. 选择最优旗帜
         """
+        me = obs.self_player
+        
+        # 优先检查：在敌方区域且8格内有敌人，先逃避
+        should_evade, enemy_pos = self._should_evade_in_enemy_territory(obs)
+        if should_evade and enemy_pos:
+            # 计算逃避点：远离敌人，向己方半场方向
+            dx = me.position.x - enemy_pos.x
+            dz = me.position.z - enemy_pos.z
+            
+            # 归一化并扩展
+            dist = max(1, math.hypot(dx, dz))
+            escape_x = int(me.position.x + (dx / dist) * 7)
+            escape_z = int(me.position.z + (dz / dist) * 7)
+            
+            # 额外向己方半场移动
+            if self._is_enemy_half(me.position.x):
+                if self.my_half_negative:
+                    escape_x = min(escape_x, me.position.x - 3)  # 向负方向移动
+                else:
+                    escape_x = max(escape_x, me.position.x + 3)  # 向正方向移动
+            
+            escape_point = _clamp_to_map(GridPosition(x=escape_x, z=escape_z), obs)
+            
+            actions: list[Action] = self._get_chat_actions(f"敌方区域发现敌人！先逃避再夺旗！距离 {_manhattan_distance(me.position, enemy_pos)} 格 >▽<")
+            actions.append(self._create_move(escape_point, f"Evading enemy in enemy territory", radius=0, sprint=True, jump=True))
+            return actions
+        
         flags = _unplaced_flags(obs.flags_to_capture, obs.gold_block_positions)
         
         # 只选择敌方半场的旗帜
@@ -1343,8 +1392,47 @@ class EliteCTFStrategy:
         return False
     
     def _evaluate_capture_empty_enemy(self, obs: Observation) -> list[Action] | None:
-        """评估是否抓捕空载敌人"""
+        """评估是否抓捕空载敌人 - 己方区域积极追捕，敌人跨越中界则放弃"""
         me = obs.self_player
+        
+        # 检查是否正在追逐某个目标
+        if self._chasing_target_name is not None:
+            # 查找正在追逐的目标
+            chasing_enemy = None
+            for e in obs.enemies:
+                if e.name == self._chasing_target_name and not e.in_prison:
+                    chasing_enemy = e
+                    break
+            
+            if chasing_enemy:
+                # 检测敌人是否跨越中界（x坐标符号改变）
+                current_x_sign = 1 if chasing_enemy.position.x >= 0 else -1
+                last_x_sign = 1 if self._chasing_target_last_x >= 0 else -1
+                
+                # 如果敌人跨越中界，放弃追逐
+                if current_x_sign != last_x_sign and abs(chasing_enemy.position.x) < 5:
+                    self._clear_chasing_state()
+                    return None
+                
+                # 更新追逐目标位置
+                self._chasing_target_last_x = chasing_enemy.position.x
+                
+                # 如果敌人在己方半场，继续追逐
+                if self._is_my_half(chasing_enemy.position.x):
+                    actions: list[Action] = self._get_chat_actions(f"{chasing_enemy.name} 别想跑！继续追！>ω<")
+                    actions.append(self._create_move(chasing_enemy.position, f"Chasing {chasing_enemy.name} (pursuit)", radius=0, sprint=True, jump=True))
+                    return actions
+                else:
+                    # 敌人回到敌方半场，放弃追逐
+                    self._clear_chasing_state()
+                    return None
+            else:
+                # 目标丢失或坐牢，清除状态
+                self._clear_chasing_state()
+        
+        # 己方半场才积极追捕空载敌人
+        if not self._is_my_half(me.position.x):
+            return None
         
         empty_enemies = [
             e for e in obs.enemies
@@ -1357,70 +1445,87 @@ class EliteCTFStrategy:
         best_target = None
         best_score = float('-inf')
         
-        flags = _unplaced_flags(obs.flags_to_capture, obs.gold_block_positions)
-        my_distance_to_flag = float('inf')
-        if flags:
-            closest_flag_to_me = min(flags,
-                key=lambda f: _manhattan_distance(me.position, f.grid_position))
-            my_distance_to_flag = _manhattan_distance(me.position, closest_flag_to_me.grid_position)
-        
         for enemy in empty_enemies:
             score = 0
             distance = _manhattan_distance(me.position, enemy.position)
-            enemy_on_my_half = self._is_my_half(enemy.position.x)
             
-            if enemy_on_my_half:
-                if distance <= 3:
-                    score += 50
-                elif distance <= 6:
-                    score += 35
-                elif distance <= 10:
-                    score += 20
-                else:
-                    if abs(enemy.position.x) >= 15:
-                        score += 10
-                
-                depth = abs(enemy.position.x) + 5
-                score += depth * 0.3
-            else:
-                score -= 100
+            # 只在己方半场追捕
+            if not self._is_my_half(enemy.position.x):
                 continue
             
-            score += max(0, 15 - distance)
+            # 距离评分 - 更激进的评分
+            if distance <= 3:
+                score += 100  # 极近距离，必追
+            elif distance <= 6:
+                score += 70
+            elif distance <= 10:
+                score += 40
+            elif distance <= 15:
+                score += 20
+            else:
+                score += 5
             
-            if flags:
-                closest_flag_to_enemy = min(flags,
-                    key=lambda f: _manhattan_distance(enemy.position, f.grid_position))
-                enemy_to_flag = _manhattan_distance(enemy.position, closest_flag_to_enemy.grid_position)
-                if enemy_to_flag <= 5:
-                    score += 25
-                    if distance <= 6:
-                        score += 15
+            # 敌人深入己方半场加分
+            depth = abs(enemy.position.x)
+            if self.my_half_negative:
+                depth = abs(enemy.position.x) if enemy.position.x < 0 else 0
+            else:
+                depth = enemy.position.x if enemy.position.x > 0 else 0
+            score += depth * 2
             
-            nearby_enemies = sum(
-                1 for e in empty_enemies
-                if _manhattan_distance(e.position, enemy.position) <= 4
-            )
-            score += nearby_enemies * 8
-            
-            if abs(enemy.position.x) <= 3:
-                score -= 15
-            
-            if my_distance_to_flag <= 3 and distance > 6:
-                score -= 40
-            
-            threshold = 20 if distance <= 4 else 30
+            # 阈值降低，更容易触发追捕
+            threshold = 15 if distance <= 6 else 25
             
             if score > best_score and score >= threshold:
                 best_score = score
                 best_target = enemy
         
         if best_target:
-            actions: list[Action] = self._get_chat_actions(f"发现落单的 {best_target.name} 惹！嘿嘿~ 准备抓人啦~ >ω<")
-            actions.append(self._create_move(best_target.position, "Chasing empty enemy", radius=0, sprint=True, jump=True))
+            # 记录追逐状态
+            self._chasing_target_name = best_target.name
+            self._chasing_target_last_x = best_target.position.x
+            self._chasing_start_x = me.position.x
+            
+            actions: list[Action] = self._get_chat_actions(f"发现 {best_target.name} 在己方区域！追上去送进监狱！>ω<")
+            actions.append(self._create_move(best_target.position, f"Chasing {best_target.name} (aggressive)", radius=0, sprint=True, jump=True))
             return actions
         
         return None
+    
+    def _clear_chasing_state(self) -> None:
+        """清除追逐状态"""
+        self._chasing_target_name = None
+        self._chasing_target_last_x = None
+        self._chasing_start_x = None
+    
+    def _should_evade_in_enemy_territory(self, obs: Observation) -> tuple[bool, GridPosition | None]:
+        """
+        检查在敌方区域是否需要逃避
+        
+        Returns:
+            (是否需要逃避, 最近的敌人位置)
+        """
+        me = obs.self_player
+        
+        # 只有在敌方半场才需要逃避检查
+        if not self._is_enemy_half(me.position.x):
+            return False, None
+        
+        # 寻找8格内的非坐牢敌人
+        dangerous_enemies = [
+            e for e in obs.enemies
+            if not e.in_prison
+            and _manhattan_distance(me.position, e.position) <= 8
+        ]
+        
+        if not dangerous_enemies:
+            return False, None
+        
+        # 找到最近的敌人
+        closest_enemy = min(dangerous_enemies,
+                           key=lambda e: _manhattan_distance(me.position, e.position))
+        
+        return True, closest_enemy.position
     
     def _should_rescue_aggressive(self, obs: Observation) -> bool:
         """判断是否应救援队友"""

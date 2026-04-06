@@ -332,7 +332,7 @@ class _Objective:
     target: GridPosition
     radius: int
     sprint: bool
-    jump: bool = True
+    jump: bool = False
 
 
 @dataclass
