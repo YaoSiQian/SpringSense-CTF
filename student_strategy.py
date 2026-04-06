@@ -208,6 +208,11 @@ class EliteCTFStrategy:
     # 地图类型检测
     _is_fixed_map: bool = field(default=False, repr=False)
     
+    # ========== 聊天冷却 ==========
+    _last_chat_time: float = field(default=0.0, repr=False)
+    _chat_cooldown_seconds: float = field(default=3.0, repr=False)
+    _pending_chat_message: str | None = field(default=None, repr=False)
+    
     def on_game_start(self, obs: Observation) -> None:
         """游戏开始时初始化"""
         # 基础状态重置
@@ -619,8 +624,7 @@ class EliteCTFStrategy:
         if not targets:
             # 没有目标点，去安全位置
             safe_pos = _get_safe_position(obs)
-            actions: list[Action] = []
-            actions.append(Chat(message="\u00A7a哎呀~ 没有可以放旗子的地方惹，先待在这里吧~ >_<"))
+            actions: list[Action] = self._get_chat_actions("\u00A7a哎呀~ 没有可以放旗子的地方惹，先待在这里吧~ >_<")
             actions.append(self._create_move(safe_pos, "No target, holding", radius=1))
             return actions
         
@@ -642,8 +646,7 @@ class EliteCTFStrategy:
             )
             
             if evasion_point:
-                actions: list[Action] = []
-                actions.append(Chat(message=f"呀呀~ 发现敌人惹，正在绕行躲避的说~ >▽< 目标是 ({target_pos.x},{target_pos.z})"))
+                actions: list[Action] = self._get_chat_actions(f"呀呀~ 发现敌人惹，正在绕行躲避的说~ >▽< 目标是 ({target_pos.x},{target_pos.z})")
                 actions.append(self._create_move(
                     evasion_point,
                     f"Evading with flag (to {target_pos.x},{target_pos.z})",
@@ -652,8 +655,7 @@ class EliteCTFStrategy:
                 ))
                 return actions
         
-        actions: list[Action] = []
-        actions.append(Chat(message=f"嘿嘿~ 带着旗帜跑路中~ 目的地是 ({target_pos.x},{target_pos.z}) 喵~ >ω<"))
+        actions: list[Action] = self._get_chat_actions(f"嘿嘿~ 带着旗帜跑路中~ 目的地是 ({target_pos.x},{target_pos.z}) 喵~ >ω<")
         actions.append(self._create_move(target_pos, "Returning flag", radius=0, sprint=True))
         return actions
     
@@ -686,8 +688,7 @@ class EliteCTFStrategy:
             if self._is_near_leaves(intercept_point, obs):
                 intercept_point = self._adjust_for_leaves(intercept_point)
             
-            actions: list[Action] = []
-            actions.append(Chat(message=f"发现 {enemy.name} 惹！预测他要去的方向~ 准备拦截惹！>ω<"))
+            actions: list[Action] = self._get_chat_actions(f"发现 {enemy.name} 惹！预测他要去的方向~ 准备拦截惹！>ω<")
             actions.append(self._create_move(
                 intercept_point,
                 f"Intercepting {enemy.name} (predicted)",
@@ -697,8 +698,7 @@ class EliteCTFStrategy:
             return actions
         else:
             # 无法预测或敌人在敌方半场，直接追击
-            actions: list[Action] = []
-            actions.append(Chat(message=f"看到 {enemy.name} 了！追上去给他一点颜色看看！>ω<"))
+            actions: list[Action] = self._get_chat_actions(f"看到 {enemy.name} 了！追上去给他一点颜色看看！>ω<")
             actions.append(self._create_move(
                 enemy.position,
                 f"Chasing {enemy.name}",
@@ -763,8 +763,7 @@ class EliteCTFStrategy:
                 threshold=EVASION_CAPTURE_THRESHOLD
             )
             if evasion_point:
-                actions: list[Action] = []
-                actions.append(Chat(message="\u00A7a哎呀~ 敌人太多惹！先绕一下再夺取旗帜喵~ >▽<"))
+                actions: list[Action] = self._get_chat_actions("\u00A7a哎呀~ 敌人太多惹！先绕一下再夺取旗帜喵~ >▽<")
                 actions.append(self._create_move(
                     evasion_point,
                     f"Evading to flag at {target_pos.x},{target_pos.z}",
@@ -773,8 +772,7 @@ class EliteCTFStrategy:
                 ))
                 return actions
         
-        actions: list[Action] = []
-        actions.append(Chat(message=f"发现敌方旗帜惹！正在夺取中~ >ω< 目标是 ({target_pos.x},{target_pos.z})"))
+        actions: list[Action] = self._get_chat_actions(f"发现敌方旗帜惹！正在夺取中~ >ω< 目标是 ({target_pos.x},{target_pos.z})")
         actions.append(self._create_move(target_pos, "Capturing flag", radius=0, sprint=True))
         return actions
     
@@ -818,8 +816,7 @@ class EliteCTFStrategy:
                 self.avoidance_target = None
                 self.stuck_ticks_avoidance = 0
             else:
-                actions: list[Action] = []
-                actions.append(Chat(message="\u00A7a呀！被木头挡住了！换一个方向走啦~ >▽<"))
+                actions: list[Action] = self._get_chat_actions("\u00A7a呀！被木头挡住了！换一个方向走啦~ >▽<")
                 actions.append(self._create_move(
                     GridPosition(x=self.avoidance_target[0], z=self.avoidance_target[1]),
                     "Avoiding tree obstacle",
@@ -833,8 +830,7 @@ class EliteCTFStrategy:
             avoid_z = int(me.position.z + direction * 5)
             avoid_z = max(MAP_BOUNDS["min_z"], min(MAP_BOUNDS["max_z"], avoid_z))
             self.avoidance_target = (int(me.position.x), avoid_z)
-            actions: list[Action] = []
-            actions.append(Chat(message="\u00A7a嘿呀~ 发现树木障碍惹，正在绕行~ >ω<"))
+            actions: list[Action] = self._get_chat_actions("\u00A7a嘿呀~ 发现树木障碍惹，正在绕行~ >ω<")
             actions.append(self._create_move(
                 GridPosition(x=self.avoidance_target[0], z=self.avoidance_target[1]),
                 "Avoiding tree obstacle",
@@ -845,8 +841,7 @@ class EliteCTFStrategy:
         # 冷却期间：持续向敌方半场深处移动
         if self.post_plant_cooldown > 0:
             target_x = 15 if self._is_enemy_half(me.position.x) else -15
-            actions: list[Action] = []
-            actions.append(Chat(message="\u00A7a插完旗子先溜一下惹~ >ω<"))
+            actions: list[Action] = self._get_chat_actions("\u00A7a插完旗子先溜一下惹~ >ω<")
             actions.append(self._create_move(
                 GridPosition(x=target_x, z=me.position.z),
                 "Post-plant cooldown",
@@ -915,18 +910,17 @@ class EliteCTFStrategy:
     def _escape_prison(self, obs: Observation) -> list[Action]:
         """越狱策略"""
         me = obs.self_player
-        actions: list[Action] = []
         
         # 如果还在危险区域（z >= 28），先远离压力板
         if me.position.z >= PRISON_DANGER_ZONE_Z - 1:
             safe_target = GridPosition(x=me.position.x, z=26)
-            actions.append(Chat(message="\u00A7a被关起来了！(>_<) 正在尝试越狱的说..."))
+            actions: list[Action] = self._get_chat_actions("\u00A7a被关起来了！(>_<) 正在尝试越狱的说...")
             actions.append(self._create_move(safe_target, "Escaping danger zone", radius=0))
             return actions
         
         # 向监狱出口移动
         exit_target = PRISON_EXIT_TARGET[obs.team]
-        actions.append(Chat(message="\u00A7a逃出来了喵！>ω< 正在离开危险区域~"))
+        actions: list[Action] = self._get_chat_actions("\u00A7a逃出来了喵！>ω< 正在离开危险区域~")
         actions.append(self._create_move(exit_target, "Escaping prison", radius=0))
         return actions
     
@@ -1062,7 +1056,8 @@ class EliteCTFStrategy:
             else:
                 msg = "被障碍物挡住了！(>_<) 正在绕行~"
             
-            actions.append(Chat(message=msg))
+            chat = self._try_send_chat(msg)
+            actions: list[Action] = [chat] if chat else []
             actions.append(MoveTo(x=target.x, z=target.z, radius=0, sprint=True, jump=True))
             return actions
         
@@ -1084,7 +1079,7 @@ class EliteCTFStrategy:
             target = GridPosition(x=me.position.x + dx, z=me.position.z + dz)
         
         target = _clamp_to_map(target, obs)
-        actions.append(Chat(message="\u00A7a怎么走不动了Σ(°△°) 一定是障碍物的问题！正在尝试其他方向~"))
+        actions: list[Action] = self._get_chat_actions("\u00A7a怎么走不动了Σ(°△°) 一定是障碍物的问题！正在尝试其他方向~")
         actions.append(MoveTo(x=target.x, z=target.z, radius=0, sprint=True, jump=True))
         return actions
     
@@ -1182,7 +1177,7 @@ class EliteCTFStrategy:
             target = GridPosition(x=target.x, z=me.position.z + dz)
             target = _clamp_to_map(target, obs)
         
-        actions.append(Chat(message="\u00A7a怎么卡住了！(>_<) 正在努力挣脱中..."))
+        actions: list[Action] = self._get_chat_actions("\u00A7a怎么卡住了！(>_<) 正在努力挣脱中...")
         actions.append(MoveTo(x=target.x, z=target.z, radius=0, sprint=True, jump=True))
         return actions
     
@@ -1222,7 +1217,7 @@ class EliteCTFStrategy:
             target = GridPosition(x=target.x, z=me.position.z + dz)
             target = _clamp_to_map(target, obs)
         
-        actions.append(Chat(message="\u00A7a好多蘑菇牛牛！Σ(°△°) 正在努力突围啦~ >ω<"))
+        actions: list[Action] = self._get_chat_actions("\u00A7a好多蘑菇牛牛！Σ(°△°) 正在努力突围啦~ >ω<")
         actions.append(MoveTo(x=target.x, z=target.z, radius=0, sprint=True, jump=True))
         return actions
     
@@ -1240,7 +1235,7 @@ class EliteCTFStrategy:
             return None
         
         actions: list[Action] = []
-        actions.append(Chat(message="\u00A7a被树叶埋住了！(>_<) 正在努力爬出来..."))
+        actions: list[Action] = self._get_chat_actions("\u00A7a被树叶埋住了！(>_<) 正在努力爬出来...")
         
         escape_x, escape_z = 0, 0
         
@@ -1421,8 +1416,7 @@ class EliteCTFStrategy:
                 best_target = enemy
         
         if best_target:
-            actions: list[Action] = []
-            actions.append(Chat(message=f"发现落单的 {best_target.name} 惹！嘿嘿~ 准备抓人啦~ >ω<"))
+            actions: list[Action] = self._get_chat_actions(f"发现落单的 {best_target.name} 惹！嘿嘿~ 准备抓人啦~ >ω<")
             actions.append(self._create_move(best_target.position, "Chasing empty enemy", radius=0, sprint=True, jump=True))
             return actions
         
@@ -1453,8 +1447,7 @@ class EliteCTFStrategy:
     def _rescue_teammate(self, obs: Observation) -> list[Action]:
         """执行救援"""
         prison_plate = PRISON_PRESSURE_PLATE[obs.team]
-        actions: list[Action] = []
-        actions.append(Chat(message="\u00A7a队友被关起来了！(>_<) 正在前往救援惹~"))
+        actions: list[Action] = self._get_chat_actions("\u00A7a队友被关起来了！(>_<) 正在前往救援惹~")
         actions.append(self._create_move(prison_plate, "Rescuing teammate", radius=0, sprint=True))
         return actions
     
@@ -1466,16 +1459,14 @@ class EliteCTFStrategy:
         else:
             defend_pos = MIDFIELD_ANCHOR[obs.team]
         
-        actions: list[Action] = []
-        actions.append(Chat(message="\u00A7a现在要防守基地惹~ 乖乖待在这里等着敌人来~ >ω<"))
+        actions: list[Action] = self._get_chat_actions("\u00A7a现在要防守基地惹~ 乖乖待在这里等着敌人来~ >ω<")
         actions.append(self._create_move(defend_pos, "Defending base", radius=2, sprint=False))
         return actions
     
     def _control_midfield(self, obs: Observation) -> list[Action]:
         """中场控制"""
         midfield = MIDFIELD_ANCHOR[obs.team]
-        actions: list[Action] = []
-        actions.append(Chat(message="\u00A7a去中场看看有什么好玩的吧~ >ω<"))
+        actions: list[Action] = self._get_chat_actions("\u00A7a去中场看看有什么好玩的吧~ >ω<")
         actions.append(self._create_move(midfield, "Holding midfield", radius=2, sprint=False))
         return actions
     
@@ -1595,6 +1586,26 @@ class EliteCTFStrategy:
     ) -> MoveTo:
         """创建移动动作"""
         return MoveTo(x=target.x, z=target.z, radius=radius, sprint=sprint, jump=jump)
+    
+    def _try_send_chat(self, message: str) -> Chat | None:
+        """尝试发送聊天消息（带冷却机制）
+        
+        如果冷却时间内，消息会被忽略。
+        返回 Chat 动作或 None。
+        """
+        now = time.time()
+        if now - self._last_chat_time >= self._chat_cooldown_seconds:
+            self._last_chat_time = now
+            return Chat(message=message)
+        return None
+    
+    def _get_chat_actions(self, message: str) -> list[Action]:
+        """获取包含聊天消息的动作列表（带冷却）
+        
+        如果冷却中，只返回空列表（不包含 Chat）。
+        """
+        chat = self._try_send_chat(message)
+        return [chat] if chat else []
 
 
 # =============================================================================
