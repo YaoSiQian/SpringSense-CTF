@@ -507,7 +507,9 @@ class EliteCTFStrategy:
                 if self._is_enemy_half(b.grid_position.x)
             ]
             closest_gold = self._pick_closest_block(enemy.position, their_golds)
-            return closest_gold.grid_position if closest_gold else None
+            if closest_gold is None:
+                return None
+            return closest_gold.grid_position
         else:
             # 敌人空载：预测其要夺的旗帜（我方旗帜）
             if not obs.flags_to_protect:
@@ -675,7 +677,7 @@ class EliteCTFStrategy:
         me = obs.self_player
         
         # 检查是否正在追逐此敌人，且敌人已跨越中界
-        if self._chasing_target_name == enemy.name:
+        if self._chasing_target_name == enemy.name and self._chasing_target_last_x is not None:
             current_x_sign = 1 if enemy.position.x >= 0 else -1
             last_x_sign = 1 if self._chasing_target_last_x >= 0 else -1
             
@@ -1407,7 +1409,7 @@ class EliteCTFStrategy:
             if chasing_enemy:
                 # 检测敌人是否跨越中界（x坐标符号改变）
                 current_x_sign = 1 if chasing_enemy.position.x >= 0 else -1
-                last_x_sign = 1 if self._chasing_target_last_x >= 0 else -1
+                last_x_sign = 1 if (self._chasing_target_last_x or 0) >= 0 else -1
                 
                 # 如果敌人跨越中界，放弃追逐
                 if current_x_sign != last_x_sign and abs(chasing_enemy.position.x) < 5:
