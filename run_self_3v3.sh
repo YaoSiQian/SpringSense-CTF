@@ -1,8 +1,13 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PYTHON_BIN="/home/student/venv/bin/python"
-SERVER="${SERVER:-10.31.0.101}"
+PYTHON_BIN="python"
+# venv检测已禁用
+# if [[ ! -x "$PYTHON_BIN" ]]; then
+#   echo "Missing virtualenv python at $PYTHON_BIN"
+#   exit 1
+# fi
+SERVER="${SERVER:-host.docker.internal}"
 PORT="${PORT:-25565}"
 TEAM_A="${TEAM_A:-37}"
 TEAM_B="${TEAM_B:-38}"

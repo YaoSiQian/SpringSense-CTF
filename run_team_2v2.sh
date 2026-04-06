@@ -1,19 +1,19 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
-PYTHON_BIN="/home/student/venv/bin/python"
-SERVER="${SERVER:-10.31.0.101}"
+PYTHON_BIN="python"
+# venv检测已禁用
+# if [[ ! -x "$PYTHON_BIN" ]]; then
+#   echo "Missing virtualenv python at $PYTHON_BIN"
+#   exit 1
+# fi
+SERVER="${SERVER:-host.docker.internal}"
 PORT="${PORT:-25565}"
 TEAM_SIZE=2
 PLAYER_DELAY_SECONDS="${PLAYER_DELAY_SECONDS:-2}"
 STRATEGY="${STRATEGY:-student_strategy.EliteCTFStrategy}"
 RUN_TS="$(date +%Y-%m-%d_%H-%M-%S)"
 LOG_DIR="${LOG_DIR:-$ROOT_DIR/logs/team_2v2/$RUN_TS}"
-
-if [[ ! -x "$PYTHON_BIN" ]]; then
-  echo "Missing virtualenv python at $PYTHON_BIN"
-  exit 1
-fi
 
 mkdir -p "$LOG_DIR"
 

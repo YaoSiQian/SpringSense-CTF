@@ -88,7 +88,7 @@ class World:
         js_bridge: JavaScriptBridge,
         team_num: int,
         player_num: int,
-        against_team: int | None = None,
+        against_team: int | str | None = None,
         total_player_per_team: int = 1,
         map_mode: str = "fixed",
         server: str = DEFAULT_SERVER,
@@ -705,11 +705,16 @@ def _normalize_bot_name(*, team_num: int, player_num: int) -> str:
 
 def _build_intent_message(
     *,
-    against_team: int | None,
+    against_team: int | str | None,
     total_player_per_team: int,
     map_mode: str,
 ) -> str:
-    against_value = "none" if against_team is None else str(against_team)
+    if against_team is None:
+        against_value = "none"
+    elif against_team == "random":
+        against_value = "random"
+    else:
+        against_value = str(against_team)
     return f"with {against_value} {total_player_per_team} {map_mode}"
 
 
