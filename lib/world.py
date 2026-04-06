@@ -633,21 +633,36 @@ class World:
         off = self._js_bridge.off
         self._off = off
 
-        @On(self._bot, "messagestr")
-        def _on_messagestr(maybe_sender, maybe_message, *args):
-            self._handle_incoming_message(maybe_sender, maybe_message, *args)
+        try:
+            @On(self._bot, "messagestr")
+            def _on_messagestr(maybe_sender, maybe_message, *args):
+                self._handle_incoming_message(maybe_sender, maybe_message, *args)
+            _message_listener_ref = _on_messagestr
+        except Exception as e:
+            self._log(f"[Warning] Could not install 'messagestr' listener: {e}")
+            _message_listener_ref = None
 
-        @On(self._bot, "chat")
-        def _on_chat(*args):
-            self._handle_incoming_message(*args)
+        try:
+            @On(self._bot, "chat")
+            def _on_chat(*args):
+                self._handle_incoming_message(*args)
+            _chat_listener_ref = _on_chat
+        except Exception as e:
+            self._log(f"[Warning] Could not install 'chat' listener: {e}")
+            _chat_listener_ref = None
 
-        @On(self._bot, "message")
-        def _on_message(*args):
-            self._handle_incoming_message(*args)
+        try:
+            @On(self._bot, "message")
+            def _on_message(*args):
+                self._handle_incoming_message(*args)
+            _message_object_listener_ref = _on_message
+        except Exception as e:
+            self._log(f"[Warning] Could not install 'message' listener: {e}")
+            _message_object_listener_ref = None
 
-        self._message_listener = _on_messagestr
-        self._chat_listener = _on_chat
-        self._message_object_listener = _on_message
+        self._message_listener = _message_listener_ref
+        self._chat_listener = _chat_listener_ref
+        self._message_object_listener = _message_object_listener_ref
         self._listeners_installed = True
 
     def _remove_game_start_listeners(self) -> None:
@@ -741,35 +756,50 @@ class World:
     def _install_connection_debug_listeners(self, bot: Any) -> None:
         On = self._js_bridge.On
 
-        @On(bot, "error")
-        def _on_error(error: Any, *args: Any):
-            rendered = _coerce_message_text(error)
-            extras = " ".join(part for part in (_coerce_message_text(arg) for arg in args) if part)
-            self._connection_error_message = " ".join(part for part in (rendered, extras) if part) or repr(error)
-            self._log(f"[DEBUG] Bot connection error: {self._connection_error_message}")
+        try:
+            @On(bot, "error")
+            def _on_error(error: Any, *args: Any):
+                rendered = _coerce_message_text(error)
+                extras = " ".join(part for part in (_coerce_message_text(arg) for arg in args) if part)
+                self._connection_error_message = " ".join(part for part in (rendered, extras) if part) or repr(error)
+                self._log(f"[DEBUG] Bot connection error: {self._connection_error_message}")
+        except Exception as e:
+            self._log(f"[DEBUG] Could not install 'error' listener: {e}")
 
-        @On(bot, "kicked")
-        def _on_kicked(reason: Any, *args: Any):
-            rendered = _coerce_message_text(reason)
-            extras = " ".join(part for part in (_coerce_message_text(arg) for arg in args) if part)
-            self._disconnect_reason = " ".join(part for part in (rendered, extras) if part) or "kicked"
-            self._log(f"[DEBUG] Bot kicked: {self._disconnect_reason}")
+        try:
+            @On(bot, "kicked")
+            def _on_kicked(reason: Any, *args: Any):
+                rendered = _coerce_message_text(reason)
+                extras = " ".join(part for part in (_coerce_message_text(arg) for arg in args) if part)
+                self._disconnect_reason = " ".join(part for part in (rendered, extras) if part) or "kicked"
+                self._log(f"[DEBUG] Bot kicked: {self._disconnect_reason}")
+        except Exception as e:
+            self._log(f"[DEBUG] Could not install 'kicked' listener: {e}")
 
-        @On(bot, "end")
-        def _on_end(reason: Any = None, *args: Any):
-            rendered = _coerce_message_text(reason)
-            extras = " ".join(part for part in (_coerce_message_text(arg) for arg in args) if part)
-            detail = " ".join(part for part in (rendered, extras) if part) or "connection ended"
-            self._disconnect_reason = detail
-            self._log(f"[DEBUG] Bot connection ended: {detail}")
+        try:
+            @On(bot, "end")
+            def _on_end(reason: Any = None, *args: Any):
+                rendered = _coerce_message_text(reason)
+                extras = " ".join(part for part in (_coerce_message_text(arg) for arg in args) if part)
+                detail = " ".join(part for part in (rendered, extras) if part) or "connection ended"
+                self._disconnect_reason = detail
+                self._log(f"[DEBUG] Bot connection ended: {detail}")
+        except Exception as e:
+            self._log(f"[DEBUG] Could not install 'end' listener: {e}")
 
-        @On(bot, "login")
-        def _on_login(packet: Any):
-            self._log(f"[DEBUG] Bot login event received")
+        try:
+            @On(bot, "login")
+            def _on_login(packet: Any):
+                self._log(f"[DEBUG] Bot login event received")
+        except Exception as e:
+            self._log(f"[DEBUG] Could not install 'login' listener: {e}")
 
-        @On(bot, "spawn")
-        def _on_spawn(packet: Any):
-            self._log(f"[DEBUG] Bot spawn event received")
+        try:
+            @On(bot, "spawn")
+            def _on_spawn(packet: Any):
+                self._log(f"[DEBUG] Bot spawn event received")
+        except Exception as e:
+            self._log(f"[DEBUG] Could not install 'spawn' listener: {e}")
 
     def _append_log_line(self, log_path: Path, payload: Mapping[str, Any]) -> None:
         log_path.parent.mkdir(parents=True, exist_ok=True)
@@ -848,6 +878,15 @@ def _normalize_game_start_assignments(payload: Mapping[str, Any]) -> dict[str, T
     return assignments
 
 
+def _safe_getattr(value: Any, attr: str, default: Any = None) -> Any:
+    """Safely get attribute from a value, handling JavaScript bridge timeouts."""
+    try:
+        return getattr(value, attr, default)
+    except Exception:
+        # JavaScript bridge may timeout or fail
+        return default
+
+
 def _coerce_message_text(value: Any) -> str:
     """Convert a value to a readable string, handling JavaScript objects properly."""
     if value is None:
@@ -866,19 +905,19 @@ def _coerce_message_text(value: Any) -> str:
         return " ".join(part for part in (_coerce_message_text(item) for item in value) if part)
 
     # Try text attribute (common in chat components)
-    text_attr = getattr(value, "text", None)
+    text_attr = _safe_getattr(value, "text", None)
     if isinstance(text_attr, str) and text_attr:
         return text_attr
 
     # Try json attribute (Mineflayer chat messages)
-    json_attr = getattr(value, "json", None)
+    json_attr = _safe_getattr(value, "json", None)
     if json_attr is not None:
         flattened = _flatten_chat_json(json_attr)
         if flattened:
             return flattened
 
     # Try toString but filter out [object Object]
-    to_string = getattr(value, "toString", None)
+    to_string = _safe_getattr(value, "toString", None)
     if callable(to_string):
         try:
             rendered = to_string()
@@ -897,7 +936,7 @@ def _extract_meaningful_content(value: Any) -> str:
     
     # Common chat message properties
     for key in ["translate", "insertion", "hoverEvent", "clickEvent"]:
-        attr = getattr(value, key, None)
+        attr = _safe_getattr(value, key, None)
         if attr is None and isinstance(value, dict):
             attr = value.get(key)
         if isinstance(attr, str) and attr:
@@ -910,7 +949,7 @@ def _extract_meaningful_content(value: Any) -> str:
                     parts.append(sub_val)
     
     # Try to get 'with' field (translation arguments)
-    with_val = getattr(value, "with", None)
+    with_val = _safe_getattr(value, "with", None)
     if with_val is None and isinstance(value, dict):
         with_val = value.get("with")
     if with_val is not None:
@@ -919,7 +958,7 @@ def _extract_meaningful_content(value: Any) -> str:
             parts.append(with_text)
     
     # Try extra field
-    extra = getattr(value, "extra", None)
+    extra = _safe_getattr(value, "extra", None)
     if extra is None and isinstance(value, dict):
         extra = value.get("extra")
     if extra is not None:
