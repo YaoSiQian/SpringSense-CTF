@@ -6,7 +6,7 @@ SERVER="${SERVER:-10.31.0.101}"
 PORT="${PORT:-25565}"
 TEAM_SIZE=2
 PLAYER_DELAY_SECONDS="${PLAYER_DELAY_SECONDS:-2}"
-STRATEGY="${STRATEGY:-student_strategy.AdaptiveCTFStrategy}"
+STRATEGY="${STRATEGY:-student_strategy.EliteCTFStrategy}"
 RUN_TS="$(date +%Y-%m-%d_%H-%M-%S)"
 LOG_DIR="${LOG_DIR:-$ROOT_DIR/logs/team_2v2/$RUN_TS}"
 
@@ -57,7 +57,7 @@ case "$STRATEGY_CHOICE" in
     STRATEGY="student_strategy.EliteCTFStrategy"
     ;;
   2)
-    STRATEGY="student_strategy.AdaptiveCTFStrategy"
+    STRATEGY="adaptive_strategy.AdaptiveCTFStrategy"
     ;;
   3)
     STRATEGY="student_strategy.RandomWalkStrategy"

@@ -56,7 +56,7 @@ resolve_strategy_choice() {
   local choice="$1"
   case "$choice" in
     1) echo "student_strategy.EliteCTFStrategy" ;;
-    2) echo "student_strategy.AdaptiveCTFStrategy" ;;
+    2) echo "adaptive_strategy.AdaptiveCTFStrategy" ;;
     3) echo "student_strategy.RandomWalkStrategy" ;;
     4) echo "default_strategy.PickClosestFlagAndBackStrategy" ;;
     *)
