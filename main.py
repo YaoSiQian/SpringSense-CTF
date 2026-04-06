@@ -93,37 +93,98 @@ def main() -> int:
         when=run_time,
     )
 
+    max_reconnect_attempts = 10
+    reconnect_delay_seconds = 5
+    reconnect_count = 0
+
     try:
         js_runtime, js_bridge = _initialize_js_bridge()
-        world = World(
-            js_bridge=js_bridge,
-            team_num=args.team_num,
-            player_num=args.player_num,
-            against_team=args.against,
-            total_player_per_team=args.per_team_player,
-            map_mode=args.map_mode,
-            server=args.server,
-            port=args.port,
-            verbose=args.verbose,
-        )
-        strategy = _load_strategy(args.strategy)
-        world.run_with_logging(
-            strategy,
-            action_tick_seconds=args.action_tick,
-            snapshot_tick_seconds=args.snapshot_tick,
-            log_path=multi_log_path,
-        )
-        print(f"Appended snapshots to {multi_log_path}")
-        final_observation = world.observe()
-        final_shot_path.parent.mkdir(parents=True, exist_ok=True)
-        final_shot_path.write_text(
-            json.dumps(final_observation.to_dict(), indent=2),
-            encoding="utf-8",
-        )
-        print(f"Wrote final observation to {final_shot_path}")
+
+        while reconnect_count <= max_reconnect_attempts:
+            world = None
+            try:
+                world = World(
+                    js_bridge=js_bridge,
+                    team_num=args.team_num,
+                    player_num=args.player_num,
+                    against_team=args.against,
+                    total_player_per_team=args.per_team_player,
+                    map_mode=args.map_mode,
+                    server=args.server,
+                    port=args.port,
+                    verbose=args.verbose,
+                )
+                strategy = _load_strategy(args.strategy)
+                world.run_with_logging(
+                    strategy,
+                    action_tick_seconds=args.action_tick,
+                    snapshot_tick_seconds=args.snapshot_tick,
+                    log_path=multi_log_path,
+                )
+
+                # 正常结束游戏（非断开连接）
+                print(f"[Main] Game ended normally.")
+                print(f"Appended snapshots to {multi_log_path}")
+                final_observation = world.observe()
+                final_shot_path.parent.mkdir(parents=True, exist_ok=True)
+                final_shot_path.write_text(
+                    json.dumps(final_observation.to_dict(), indent=2),
+                    encoding="utf-8",
+                )
+                print(f"Wrote final observation to {final_shot_path}")
+                break  # 正常退出循环
+
+            except RuntimeError as e:
+                error_msg = str(e).lower()
+                # 检测到断开连接或游戏结束相关的错误
+                if any(keyword in error_msg for keyword in [
+                    "game ended", "disconnected", "connection", "kicked",
+                    "end", "closed", "timeout", "error"
+                ]):
+                    reconnect_count += 1
+                    if reconnect_count <= max_reconnect_attempts:
+                        print(f"[Main] Connection lost or game ended unexpectedly: {e}")
+                        print(f"[Main] Attempting to reconnect ({reconnect_count}/{max_reconnect_attempts}) in {reconnect_delay_seconds}s...")
+                        if world is not None:
+                            try:
+                                world.close()
+                            except Exception:
+                                pass
+                        import time
+                        time.sleep(reconnect_delay_seconds)
+                        continue
+                    else:
+                        print(f"[Main] Max reconnection attempts reached. Giving up.")
+                        raise
+                else:
+                    raise
+
+            except Exception as e:
+                # 其他异常，尝试重连
+                reconnect_count += 1
+                if reconnect_count <= max_reconnect_attempts:
+                    print(f"[Main] Unexpected error: {e}")
+                    print(f"[Main] Attempting to reconnect ({reconnect_count}/{max_reconnect_attempts}) in {reconnect_delay_seconds}s...")
+                    if world is not None:
+                        try:
+                            world.close()
+                        except Exception:
+                            pass
+                    import time
+                    time.sleep(reconnect_delay_seconds)
+                    continue
+                else:
+                    print(f"[Main] Max reconnection attempts reached. Giving up.")
+                    raise
+
+            finally:
+                if world is not None:
+                    try:
+                        world.close()
+                    except Exception:
+                        pass
+
     finally:
-        if world is not None:
-            world.close()
         if js_runtime is not None:
             try:
                 js_runtime.terminate()
