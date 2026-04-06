@@ -155,9 +155,9 @@ class World:
         self._force_jump: bool = False
 
     def join_the_world(self) -> Any:
-        self._log("Start joining the world...")
+        self._log(f"[System] Bot {self.bot_name} connecting to {self.server}:{self.port}...")
         bot = self._connect_bot()
-        self._log("Bot successfully created!")
+        self._log("[System] Bot connected successfully")
         self._install_game_start_listeners()
         while not self._intent_announced and not self._game_ended:
             self._announce_intent()
@@ -310,6 +310,16 @@ class World:
 
         previous_dynamic_state: dict[str, Any] | None = None
         next_snapshot_at = 0.0
+        next_status_log_at = 0.0
+        status_log_interval = 10.0  # Log status every 10 seconds
+        
+        # Log game start info
+        self._log(f"[Game] Bot {self.bot_name} started on team {current_observation.team}")
+        self._log(f"[Game] Map: ({current_observation.map.min_x},{current_observation.map.min_z}) to "
+                  f"({current_observation.map.max_x},{current_observation.map.max_z})")
+        self._log(f"[Game] Flags to capture: {len(current_observation.flags_to_capture)}")
+        self._log(f"[Game] My targets (empty gold blocks): {len(current_observation.my_targets)}")
+        
         self._append_log_line(
             log_path,
             {
@@ -327,7 +337,7 @@ class World:
                 delta_snapshot = self.quick_observe()
                 current_observation.patch_observation(delta_snapshot).validate()
             except Exception:
-                self._log("Failed to perform quick observe. Doing full observe instead.")
+                self._log("[Debug] Failed to perform quick observe. Doing full observe instead.")
                 current_observation = self.observe()
                 self._last_quick_snapshot = None
 
@@ -337,7 +347,14 @@ class World:
                 self._enforce_control_states()
             except Exception:
                 pass
+            
             now = time.monotonic()
+            
+            # Periodic status logging
+            if now >= next_status_log_at and self.verbose:
+                self._log_game_status(current_observation, actions)
+                next_status_log_at = now + status_log_interval
+            
             if now >= next_snapshot_at:
                 current_dynamic_state = _build_dynamic_state(current_observation, actions)
                 delta = _build_dynamic_delta(previous_dynamic_state, current_dynamic_state)
@@ -362,6 +379,48 @@ class World:
                 "team": self.team,
             },
         )
+        
+    def _log_game_status(self, observation: Observation, actions: Any) -> None:
+        """Log current game status for debugging."""
+        me = observation.self_player
+        status_parts = [f"[Status] {self.bot_name}"]
+        
+        # Position
+        status_parts.append(f"pos=({me.position.x},{me.position.z})")
+        
+        # Flag status
+        if me.has_flag:
+            status_parts.append("[HAS FLAG]")
+        
+        # Prison status
+        if me.in_prison:
+            status_parts.append("[IN PRISON]")
+        
+        # Score
+        status_parts.append(f"score=L:{observation.scores.L}/R:{observation.scores.R}")
+        
+        # Flags remaining to capture
+        flags_remaining = len(observation.flags_to_capture)
+        if flags_remaining > 0:
+            status_parts.append(f"flags_left={flags_remaining}")
+        
+        # Empty targets
+        targets_available = len(observation.my_targets)
+        if targets_available > 0:
+            status_parts.append(f"targets={targets_available}")
+        
+        # Teammates and enemies
+        teammates = len(observation.teammates)
+        enemies = len(observation.enemies)
+        if teammates > 0 or enemies > 0:
+            status_parts.append(f"players=t:{teammates}/e:{enemies}")
+        
+        # Current action
+        if actions:
+            action_str = _format_actions_for_log(actions)
+            status_parts.append(f"action={action_str}")
+        
+        self._log(" ".join(status_parts))
 
     def inspect(self) -> dict[str, Any]:
         self._connect_bot()
@@ -369,7 +428,7 @@ class World:
         time.sleep(self.settle_seconds)
         snapshot = self._capture_snapshot()
         self._log(
-            f"Snapshot captured: {snapshot['summary']['block_count']} blocks, "
+            f"[Debug] Snapshot captured: {snapshot['summary']['block_count']} blocks, "
             f"{snapshot['summary']['entity_count']} entities, "
             f"{len(snapshot['players'])} players"
         )
@@ -478,7 +537,7 @@ class World:
 
         try:
             once(bot, "login")
-            self._log(f"Connected to {self.server}:{self.port} as {self.bot_name}")
+            self._log(f"[System] Logged in to {self.server}:{self.port} as {self.bot_name}")
         except Exception as exc:
             detail = self._connection_error_message or self._disconnect_reason
             raise RuntimeError(
@@ -543,7 +602,7 @@ class World:
                 self.team = observation.team
                 return observation
             except Exception as exc:
-                self._log(f"Initialization failed: {exc}")
+                self._log(f"[Debug] Initialization failed: {exc}")
                 time.sleep(INIT_RETRY_SECONDS)
 
     def _verify_assigned_team(self) -> None:
@@ -614,13 +673,17 @@ class World:
         message_text = _coerce_message_text(maybe_message)
         extra_text = " ".join(part for part in (_coerce_message_text(arg) for arg in args) if part)
         combined_text = " ".join(part for part in (sender_text, message_text, extra_text) if part)
-        if self.verbose and combined_text:
-            self._log(f"Server message: {combined_text}")
+        
+        # Filter out invalid/empty messages and log meaningful ones
+        if self.verbose and combined_text and combined_text != "[object Object]":
+            # Only log important game messages, skip player join/leave spam
+            if _is_important_game_message(combined_text):
+                self._log(f"[Game] {combined_text}")
 
         if "Are you ready?" in sender_text or "Are you ready?" in message_text or "Are you ready?" in combined_text:
             self._ready_prompt_received = True
             self._ready_prompt_event.set()
-            self._log("Received 'Are you ready?' from system")
+            self._log("[System] Received 'Are you ready?' prompt")
 
         for candidate in (sender_text, message_text, combined_text):
             game_start_assignments = _extract_game_start_assignments(candidate)
@@ -629,7 +692,8 @@ class World:
                 self.team = game_start_assignments.get(self.bot_name)
                 self._game_started = True
                 self._game_start_event.set()
-                self._log("Received 'Game start!' from system")
+                team_assignments = ", ".join(f"{name}={team}" for name, team in game_start_assignments.items())
+                self._log(f"[System] Game started! Team assignments: {team_assignments}")
                 break
 
         if _is_game_over_text(combined_text):
@@ -637,19 +701,23 @@ class World:
             self._ready_prompt_event.set()
             self._game_start_event.set()
             self.stop_actions()
-            self._log("Received game-over signal from system")
+            winner = _extract_winner_from_game_over(combined_text)
+            if winner:
+                self._log(f"[System] Game over! Winner: {winner}")
+            else:
+                self._log("[System] Game over signal received")
 
     def _announce_intent(self) -> None:
         if self._intent_announced:
             return
         self._intent_announced = self._safe_chat(self.intent_message)
-        self._log(f"Intent Announced: {self.intent_message}")
+        self._log(f"[System] Intent announced: {self.intent_message}")
 
     def _announce_ready(self) -> None:
         if self._ready_announced:
             return
         self._ready_announced = self._safe_chat("I'm ready!")
-        self._log("Readiness Announced")
+        self._log("[System] Readiness announced")
 
     def _log(self, message: str) -> None:
         if self.verbose:
@@ -781,36 +849,90 @@ def _normalize_game_start_assignments(payload: Mapping[str, Any]) -> dict[str, T
 
 
 def _coerce_message_text(value: Any) -> str:
+    """Convert a value to a readable string, handling JavaScript objects properly."""
     if value is None:
         return ""
     if isinstance(value, str):
         return value
 
+    # Handle Python dict/list first
+    if isinstance(value, dict):
+        flattened = _flatten_chat_json(value)
+        if flattened:
+            return flattened
+        # Try to extract meaningful content from dict
+        return _extract_meaningful_content(value)
+    if isinstance(value, list | tuple):
+        return " ".join(part for part in (_coerce_message_text(item) for item in value) if part)
+
+    # Try text attribute (common in chat components)
     text_attr = getattr(value, "text", None)
-    if isinstance(text_attr, str):
+    if isinstance(text_attr, str) and text_attr:
         return text_attr
 
-    to_string = getattr(value, "toString", None)
-    if callable(to_string):
-        try:
-            rendered = to_string()
-            if isinstance(rendered, str):
-                return rendered
-        except Exception:
-            pass
-
+    # Try json attribute (Mineflayer chat messages)
     json_attr = getattr(value, "json", None)
     if json_attr is not None:
         flattened = _flatten_chat_json(json_attr)
         if flattened:
             return flattened
 
-    if isinstance(value, dict):
-        flattened = _flatten_chat_json(value)
-        if flattened:
-            return flattened
+    # Try toString but filter out [object Object]
+    to_string = getattr(value, "toString", None)
+    if callable(to_string):
+        try:
+            rendered = to_string()
+            if isinstance(rendered, str) and rendered and rendered != "[object Object]":
+                return rendered
+        except Exception:
+            pass
 
-    return str(value)
+    # Try extracting properties from JavaScript objects
+    return _extract_meaningful_content(value)
+
+
+def _extract_meaningful_content(value: Any) -> str:
+    """Extract meaningful content from JavaScript objects or dicts."""
+    parts = []
+    
+    # Common chat message properties
+    for key in ["translate", "insertion", "hoverEvent", "clickEvent"]:
+        attr = getattr(value, key, None)
+        if attr is None and isinstance(value, dict):
+            attr = value.get(key)
+        if isinstance(attr, str) and attr:
+            parts.append(attr)
+        elif isinstance(attr, dict):
+            # Extract text from nested dict
+            for sub_key in ["text", "value", "action"]:
+                sub_val = attr.get(sub_key)
+                if isinstance(sub_val, str) and sub_val:
+                    parts.append(sub_val)
+    
+    # Try to get 'with' field (translation arguments)
+    with_val = getattr(value, "with", None)
+    if with_val is None and isinstance(value, dict):
+        with_val = value.get("with")
+    if with_val is not None:
+        with_text = _coerce_message_text(with_val)
+        if with_text:
+            parts.append(with_text)
+    
+    # Try extra field
+    extra = getattr(value, "extra", None)
+    if extra is None and isinstance(value, dict):
+        extra = value.get("extra")
+    if extra is not None:
+        extra_text = _flatten_chat_json(extra)
+        if extra_text:
+            parts.append(extra_text)
+    
+    result = " ".join(parts)
+    if result and result != "[object Object]":
+        return result
+    
+    # Last resort: return empty to avoid [object Object]
+    return ""
 
 
 def _flatten_chat_json(value: Any) -> str:
@@ -853,6 +975,97 @@ def _is_game_over_text(text: str) -> bool:
     if not normalized:
         return False
     return "game over" in normalized or "game ended" in normalized
+
+
+def _extract_winner_from_game_over(text: str) -> str | None:
+    """Extract winner team from game over message."""
+    normalized = text.strip().lower()
+    # Common patterns: "L team wins", "R team wins", "Left team wins", etc.
+    if "wins" in normalized or "winner" in normalized:
+        if "team l" in normalized or " l " in normalized or normalized.startswith("l "):
+            return "L (Left/Red)"
+        if "team r" in normalized or " r " in normalized or normalized.startswith("r "):
+            return "R (Right/Blue)"
+        if "left" in normalized:
+            return "L (Left/Red)"
+        if "right" in normalized:
+            return "R (Right/Blue)"
+    return None
+
+
+def _is_important_game_message(text: str) -> bool:
+    """Filter to only show important game-related messages."""
+    if not text or text == "[object Object]":
+        return False
+    
+    normalized = text.lower()
+    
+    # Skip common spam messages
+    skip_patterns = [
+        "left the game",
+        "joined the game",
+        "has made the advancement",
+        "completed the challenge",
+        "recipes unlocked",
+        "goal reached",
+        "advancement",
+    ]
+    for pattern in skip_patterns:
+        if pattern in normalized:
+            return False
+    
+    # Include important game messages
+    important_patterns = [
+        "game start",
+        "game over",
+        "game ended",
+        "wins",
+        "winner",
+        "captured",
+        "flag",
+        "prison",
+        "jail",
+        "score",
+        "point",
+        "team",
+        "l team",
+        "r team",
+        "left team",
+        "right team",
+        "victory",
+        "defeat",
+        "tie",
+        "draw",
+    ]
+    for pattern in important_patterns:
+        if pattern in normalized:
+            return True
+    
+    # Default: don't show to reduce spam
+    return False
+
+
+def _format_actions_for_log(actions: Action | Iterable[Action] | None) -> str:
+    """Format actions for concise logging."""
+    if actions is None:
+        return "none"
+    normalized = _normalize_actions(actions)
+    if not normalized:
+        return "none"
+    
+    parts = []
+    for action in normalized:
+        if isinstance(action, MoveTo):
+            sprint_flag = "S" if action.sprint else ""
+            jump_flag = "J" if action.jump else ""
+            flags = f"[{sprint_flag}{jump_flag}]" if sprint_flag or jump_flag else ""
+            parts.append(f"MoveTo({action.x},{action.z}){flags}")
+        elif isinstance(action, Chat):
+            msg = action.message[:20] + "..." if len(action.message) > 20 else action.message
+            parts.append(f"Chat({msg})")
+        else:
+            parts.append(str(type(action).__name__))
+    return "+".join(parts)
 
 
 def _normalize_actions(actions: Action | Iterable[Action] | None) -> tuple[Action, ...]:
