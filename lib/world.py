@@ -151,6 +151,8 @@ class World:
         self._last_move_goal: tuple[int, int, int, bool] | None = None
         self._connection_error_message: str | None = None
         self._disconnect_reason: str | None = None
+        self._force_sprint: bool = False
+        self._force_jump: bool = False
 
     def join_the_world(self) -> Any:
         self._log("Start joining the world...")
@@ -218,6 +220,10 @@ class World:
             return
         goal_signature = (action.x, action.z, action.radius, action.sprint, action.jump)
         try:
+            # 设置强制控制标志，用于在主循环中持续覆盖 pathfinder 的设置
+            self._force_sprint = action.sprint
+            self._force_jump = action.jump
+            
             # 先跳后跑 - 确保跳跃状态先设置
             if action.jump:
                 _set_control_state(self._bot, "jump", True)
@@ -238,6 +244,20 @@ class World:
         except Exception:
             return
 
+    def _enforce_control_states(self) -> None:
+        """强制覆盖 pathfinder 的控制状态，确保跑跳设置生效"""
+        if self._bot is None:
+            return
+        if self._force_sprint:
+            _set_control_state(self._bot, "sprint", True)
+        if self._force_jump:
+            _set_control_state(self._bot, "jump", True)
+        # Debug: 验证控制状态
+        if self.verbose and (self._force_sprint or self._force_jump):
+            control_state = getattr(getattr(self._bot, "controlState", None), "sprint", "N/A")
+            self._log(f"[Enforce] force_sprint={self._force_sprint}, force_jump={self._force_jump}, "
+                      f"bot.sprint={control_state}")
+
     def execute_actions(self, actions: Action | Iterable[Action] | None) -> None:
         if actions is None:
             return
@@ -252,6 +272,8 @@ class World:
             return
         try:
             self._last_move_goal = None
+            self._force_sprint = False
+            self._force_jump = False
             _set_control_state(self._bot, "sprint", False)
             _set_control_state(self._bot, "jump", False)
             self._bot.pathfinder.setGoal(None)
@@ -312,6 +334,7 @@ class World:
             actions = strategy.compute_next_action(current_observation)
             try:
                 self.execute_actions(actions)
+                self._enforce_control_states()
             except Exception:
                 pass
             now = time.monotonic()
@@ -374,6 +397,8 @@ class World:
             self._game_start_event.clear()
             self._last_quick_snapshot = None
             self._last_move_goal = None
+            self._force_sprint = False
+            self._force_jump = False
 
     def _capture_snapshot(self) -> dict[str, Any]:
         if self._bot is None or self._vec3 is None:
